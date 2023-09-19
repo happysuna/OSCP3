@@ -50,7 +50,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ## Enumeration
 
-In questa fase cerco di capire se qualcuno di questi servizi servizi è configurato in modo errato o se presenta vulnerabilità note.
+In questa fase cerco di capire se qualcuno di questi servizi è configurato in modo errato o se presenta vulnerabilità note.
 
 ### 1) Porta 2222 OpenSSH 7.2p2
 
@@ -65,7 +65,7 @@ Non mi interessa utilizzare questa vulnerabilità per il momento, quindi prosegu
 
 Non trovo nulla di interessante.
 
-### 3) Direcotory enumeration
+### 3) Directory enumeration
 
 Utilizzo il comando dirb, dal quale ottengo il seguente risultato:
 

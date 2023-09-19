@@ -62,7 +62,7 @@ Ho aggiunto al file /etc/hosts/ i tre possibili hostname:
 
 ## Enumeration
 
-In questa fase cerco di capire se qualcuno di questi servizi servizi è configurato in modo errato o se presenta vulnerabilità note.
+In questa fase cerco di capire se qualcuno di questi servizi è configurato in modo errato o se presenta vulnerabilità note.
 
 ### 1) Porta 22 OpenSSH 7.2p2
 

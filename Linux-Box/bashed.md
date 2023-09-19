@@ -43,13 +43,13 @@ Network Distance: 2 hops
 
 ## Enumeration
 
-In questa fase cerco di capire se qualcuno di questi servizi servizi è configurato in modo errato o se presenta vulnerabilità note.
+In questa fase cerco di capire se qualcuno di questi servizi è configurato in modo errato o se presenta vulnerabilità note.
 
 ### 1) Porta 80 Apache 2.4.18
 
 Non trovo nulla di interessante da sfruttare.
 
-### 3) Direcotory enumeration
+### 2) Directory enumeration
 
 Utilizzo il comando dirb, dal quale ottengo il seguente risultato:
 
