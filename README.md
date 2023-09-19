@@ -7,6 +7,4 @@ Questo repository è un magazzino delle conoscenze acquisite nel corso della mia
 
 Gran parte del contenuto al suo interno è influenzato dal lavoro di [**@rana\_\_khalil**](https://twitter.com/rana__khalil), a cui desidero esprimere la mia più sincera gratitudine.
 
-Obiettivo -> ottenere la certificazione entro Giugno 2024.
-
 Per la preparazione alla certificazione seguirò questa lista [**lista**](https://twitter.com/TJ_Null/status/1328380512960995331).
