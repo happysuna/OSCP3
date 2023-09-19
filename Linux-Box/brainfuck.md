@@ -72,7 +72,7 @@ La vulnerabilità trovata:
 Questa vulnerabilità ci permette di fare username enumeration. Quindi scarico lo scpript da qui [CVE-2018-15473](https://github.com/Sait-Nuri/CVE-2018-15473) e lo eseguo passandogli una lista di username.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-2.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-2.png" />
 </p>
 
 Nel frattempo che lo script esegue in background proseguo con gli altri servizi.
@@ -82,13 +82,13 @@ Nel frattempo che lo script esegue in background proseguo con gli altri servizi.
 Per prima cosa visito il sito brainfuck.htb.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-1.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-1.png" />
 </p>
 
 Questo è un sito WordPress e quindi ci sono delle vulnerabilità! Prima di lanciare uno scanner, provo a scovare qualche informazione utile nel certificato del sito e trovo questo indirizzo email:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-3.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-3.png" />
 </p>
 
 Questo può essere utile successivamente.
@@ -108,7 +108,7 @@ Dalla scansione appena effettuata si evince che:
 Proseguo con una ricerca tramite searchsploit:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-4.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-4.png" />
 </p>
 
 Cerco di sfruttare la seconda vulnerabilità della lista che mi consentirebbe di autenticarmi anche non conoscendo la password. Per testare questa vulnerabilità occorre conscrere un username valido:
@@ -152,13 +152,13 @@ Creo un file html (priv-esc.html) recuperando il POC da exploit-db e modifico l'
 Apro il file nel browser ed effettuo il login come admin.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-5.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-5.png" />
 </p>
 
 Ora vado su _Brainfuck Ltd. > Themes > Settings > Easy WP SMTP_. Ispezionando la sorgente della pagina trovo la password dell'utente orestis in chiaro:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-6.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-6.png" />
 </p>
 
 ### 2) Accesso all'email dell'utente orestis
@@ -166,7 +166,7 @@ Ora vado su _Brainfuck Ltd. > Themes > Settings > Easy WP SMTP_. Ispezionando la
 Ho usato [evolution](https://wiki.gnome.org/Apps/Evolution) come email client e una volta eseguito l'accesso, con le credenziali trovate precedentemente, ho trovato questa email:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-7.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-7.png" />
 </p>
 
 ### 3) Accesso al sito https://sup3rs3cr3t.brainfuck.htb
@@ -174,13 +174,13 @@ Ho usato [evolution](https://wiki.gnome.org/Apps/Evolution) come email client e 
 Dando un rapido sguardo al forum ci si accorge subito che che l'utente orestis ha perso la sua chiave SSH e per questo ha richiesto all'admin di inviargliela in forma criptata. Fortunatamente, il nostro amico orestis ha questa simpatica abitudine di utilizzare come firma dei suoi messaggi la frase "Orestis — Hacking for fun and profit".
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-8.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-8.png" />
 </p>
 
 Nel thred criptato possiamo notare che la firma di orestis è diversa in ogni suo commento. Per questo motivo l'admin potrebbe aver utilizzato il [Cifrario di Vigenère](https://it.wikipedia.org/wiki/Cifrario_di_Vigen%C3%A8re), una generalizzazione del [Cifrario di Cesare](https://it.wikipedia.org/wiki/Cifrario_di_Cesare); invece di spostare sempre dello stesso numero di posti la lettera da cifrare, questa viene spostata di un numero di posti variabile ma ripetuto, determinato in base ad una parola chiave.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-9.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-9.png" />
 </p>
 
 Siccome ho ottenuto sia il plaintext che il chipertext, posso dedurre la chiave utilizzando questo script in python gentilmente offerto dal signor ChatGPT:
@@ -279,7 +279,7 @@ ssh -i id_rsa orestis@brainfuck.htb
 ```
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/brainfuck/brainfuck-10.png" />
+  <img src="/Immagini/Linux-Box/Brainfuck/brainfuck-10.png" />
 </p>
 
 **Ho ottenuto il primo flag user.txt!**

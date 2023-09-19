@@ -123,7 +123,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 Scarico lo script user.sh:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/shocker/shocker-1.png" />
+  <img src="/Immagini/Linux-Box/Shocker/shocker-1.png" />
 </p>
 
 Facendo una rapida ricerca, basandomi sul nome della macchina, mi imbatto nella vulnerabilità shellshock. Per questo motivo utilizzo uno script nmap per verificare che il sito sia vulnerabile ad essa:
@@ -167,7 +167,7 @@ Per sfruttare la vulnerabilità utilizzo la guida presente in questo [sito](http
 Avvio burp e intercetto la richiesta _/cgi-bin/user.sh_:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/shocker/shocker-2.png" />
+  <img src="/Immagini/Linux-Box/Shocker/shocker-2.png" />
 </p>
 
 Dopodichè modifico il campo _User Agent_ nel seguente modo:
@@ -182,13 +182,13 @@ nc -nlvp 4444
 ```
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/shocker/shocker-5.png" width="180" height="290"/>
+  <img src="/Immagini/Linux-Box/Shocker/shocker-5.png" width="180" height="290"/>
 </p>
 
 **SBAM! Sono dentro.**
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/shocker/shocker-3.png" />
+  <img src="/Immagini/Linux-Box/Shocker/shocker-3.png" />
 </p>
 
 ## Privilege Escalation
@@ -196,7 +196,7 @@ nc -nlvp 4444
 Per prima cosa controllo i permessi dell'utente:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/shocker/shocker-4.png" />
+  <img src="/Immagini/Linux-Box/Shocker/shocker-4.png" />
 </p>
 
 Quindi posso lanciare un comando perl come root.

