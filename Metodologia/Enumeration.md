@@ -51,3 +51,13 @@
 		```bash
 		site:github.com *Service version.release*
 		```
+
+## Linux Enumeration
+- [ ] Enumerate local information using [LinEnum](https://github.com/rebootuser/LinEnum):
+```bash
+./LinEnum.sh
+```
+- [ ] Find possible exploits on Linux using [Linux Exploit Suggester](https://github.com/jondonas/linux-exploit-suggester-2):
+	```bash
+	./linux-exploit-suggester-2.pl
+	```
