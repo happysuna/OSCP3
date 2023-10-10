@@ -57,6 +57,10 @@
 ```bash
 ./LinEnum.sh
 ```
+- [ ] Enumerate local information using [LinPEAS](https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS):
+```bash
+./linpeas.sh
+```
 - [ ] Find possible exploits on Linux using [Linux Exploit Suggester](https://github.com/jondonas/linux-exploit-suggester-2):
 	```bash
 	./linux-exploit-suggester-2.pl

