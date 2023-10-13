@@ -2,7 +2,7 @@
 
 ## Reconnaissance
 
-Per prima cosa eseguo una scansione iniziale con nmap per conoscere le porte aperte e i servizi che girano su di esse.
+Per prima cosa eseguo una scansione iniziale con nmap.
 
 ```text
 sudo nmap -sC -sV -O -oA /usr/share/nmap/initial 10.10.10.68
