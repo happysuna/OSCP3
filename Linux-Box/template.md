@@ -39,6 +39,14 @@ Innanzitutto, visito la pagina http://0.0.0.0/:
   <img src="/Immagini/Linux-Box/Template/template-1.png" />
 </p>
 
+```text
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://0.0.0.0/
+```
+
+```text
+dirsearch -u http://0.0.0.0/
+```
+
 Provo quindi ad inserire gli script elencati e uno di questi (_listfiles.php_) produce un output interessante:
 
 ```text
