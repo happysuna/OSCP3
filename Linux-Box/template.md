@@ -1,4 +1,4 @@
-# Template
+# Drive
 
 ## Reconnaissance
 
@@ -16,19 +16,30 @@ sudo nmap -sC -sV -O -oA /usr/share/nmap/initial 0.0.0.0
 Il risultato della scansione è il seguente:
 
 ```text
-Nmap scan report for 0.0.0.0
+risultato
 ```
 
-sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 0.0.0.0
+Provo ad eseguire una scansione completa:
 
 ```text
-Nmap scan report for 0.0.0.0
+sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 10.10.10.117
 ```
 
-sudo nmap -sU -O -p- -oA /usr/share/nmap/udp 0.0.0.0
+Il risultato della scansione è il seguente:
 
 ```text
-Nmap scan report for 0.0.0.0
+risultato full
+```
+
+Provo ad eseguire una scansione udp
+```text
+sudo nmap -sU -O -p- -oA /usr/share/nmap/udp 10.10.10.117
+```
+
+Il risultato della scansione è il seguente:
+
+```text
+risultato udp
 ```
 
 ## Enumeration
