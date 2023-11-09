@@ -1,4 +1,4 @@
-# Drive
+# Template
 
 ## Reconnaissance
 
@@ -22,7 +22,7 @@ risultato
 Provo ad eseguire una scansione completa:
 
 ```text
-sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 10.10.10.117
+sudo nmap -sC -sV -O -p- -oA /usr/share/nmap/full 0.0.0.0
 ```
 
 Il risultato della scansione è il seguente:
@@ -33,7 +33,7 @@ risultato full
 
 Provo ad eseguire una scansione udp
 ```text
-sudo nmap -sU -O -p- -oA /usr/share/nmap/udp 10.10.10.117
+sudo nmap -sU -O -p- -oA /usr/share/nmap/udp 0.0.0.0
 ```
 
 Il risultato della scansione è il seguente:
