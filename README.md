@@ -9,4 +9,4 @@ Per la preparazione seguirò questa [**lista**](https://twitter.com/TJ_Null/stat
 
 #### Credits
 
-Gran parte del contenuto al suo interno è influenzato dal lavoro di [**@rana\_\_khalil**](https://twitter.com/rana__khalil), a cui desidero esprimere la mia più sincera gratitudine.
+Gran parte del contenuto è influenzato dal lavoro di [**@rana\_\_khalil**](https://twitter.com/rana__khalil), a cui desidero esprimere la mia più sincera gratitudine.
