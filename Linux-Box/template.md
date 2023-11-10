@@ -42,23 +42,32 @@ Il risultato della scansione è il seguente:
 risultato udp
 ```
 
+Aggiungo _template.htb_ al file _/etc/hosts_ e passo alla fase successiva.
+
 ## Enumeration
 
-Innanzitutto, visito la pagina http://0.0.0.0/:
+Successivamente, visito la pagina http://0.0.0.0/:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/Template/template-1.png" />
+  <img src="/Immagini/Linux-Box/Template/template-1.png"/>
 </p>
+
+Provo ad utilizzare il comando _gobuster_:
 
 ```text
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://0.0.0.0/
 ```
 
+Ottengo il seguente risultato:
+```text
+...
+```
+
+Provo ad utilizzare il comando _dirsearch_:
+
 ```text
 dirsearch -u http://0.0.0.0/
 ```
-
-Provo quindi ad inserire gli script elencati e uno di questi (_listfiles.php_) produce un output interessante:
 
 ```text
 ...
