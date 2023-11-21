@@ -49,7 +49,7 @@ Aggiungo _template.htb_ al file _/etc/hosts_ e passo alla fase successiva.
 Successivamente, visito la pagina http://0.0.0.0/:
 
 <p align="center">
-  <img src="/Immagini/Linux-Box/Template/template-1.png"/>
+  <img src="/Immagini/Windows-Box/Template/template-1.png"/>
 </p>
 
 Provo ad utilizzare il comando _gobuster_:
