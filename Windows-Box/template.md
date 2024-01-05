@@ -45,6 +45,11 @@ risultato udp
 Aggiungo _template.htb_ al file _/etc/hosts_ e passo alla fase successiva.
 
 ## Enumeration
+Avvio una scansione per verificare la presenza di vulnerabilità:
+
+```text
+nmap --script vuln -oA vuln 0.0.0.0
+```
 
 Successivamente, visito la pagina http://0.0.0.0/:
 
