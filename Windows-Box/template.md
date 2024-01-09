@@ -2,7 +2,17 @@
 
 ## Reconnaissance
 
-Per prima cosa eseguo una scansione iniziale con nmap.
+Per prima cosa eseguo una scansione iniziale con _nmapAutomator_.
+
+```text
+sudo nmapAutomator.sh --host 0.0.0.0 --type All
+```
+
+Il risultato della scansione è il seguente:
+
+```text
+risultato
+```
 
 ```text
 sudo nmap -sC -sV -O -oA /usr/share/nmap/initial 0.0.0.0
@@ -88,6 +98,22 @@ Ottengo una shell migliore con questo comando:
 
 ```text
 python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+Utilizzo Windows Exploit Suggester per identificare delle patch mancanti che possono permettere di scalare privilegi.
+
+Per prima cosa aggiorno il database:
+
+```text
+python2 windows-exploit-suggester.py --update
+```
+
+Copio il risultato del comando _systeminfo_ eseguito sulla macchina vittima e lo salvo all'interno del file _systeminfo.txt_.
+
+Poi lancio l'exploit suggester:
+
+```text
+python2 windows-exploit-suggester.py --database 2024-01-09-mssb.xls --systeminfo systeminfo.txt
 ```
 
 ...
