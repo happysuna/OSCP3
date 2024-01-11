@@ -317,4 +317,4 @@ Per leggere lo stream utilizzo questo comando powershell:
 powershell Get-Content -Path "hm.txt" -Stream "root.txt"
 ```
 
-**Ottengo cosi l'utlimo flag!**
+**Ottengo cosi l'ultimo flag!**

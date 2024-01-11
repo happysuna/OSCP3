@@ -3,9 +3,9 @@
 Ciao a tutti!
 Io sono [**@naclapor**](https://twitter.com/naclapor).
 
-Questo repository è un magazzino delle conoscenze acquisite nel corso della mia preparazione per il conseguimento della certificazione OSCP (Offensive Security Certified Professional).
+Questo repository è un magazzino delle conoscenze acquisite nel corso della mia preparazione per il conseguimento della certificazione OSCP (PWK/PEN-200).
 
-Per la preparazione seguirò questa [**lista**](https://twitter.com/TJ_Null/status/1328380512960995331).
+Per la preparazione seguirò questa [**lista**](https://docs.google.com/spreadsheets/u/1/d/1dwSMIAPIam0PuRBkCiDI88pU3yzrqqHkDtBngUHNCw8/htmlview#).
 
 #### Credits
 
