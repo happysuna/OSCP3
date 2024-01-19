@@ -1,13 +1,12 @@
-# Altro
+# BloodHound
 
-## BloodHound
 - [ ] Avviare neo4j
 	```bash
 	sudo neo4j start
 	```
 - [ ] Avviare BloodHound
 	```bash
-	BloodHound --no-sandbox
+	./BloodHound --no-sandbox
 	```
 - [ ] Scaricare le informazioni sull'Active Directory tramite SharpHound
 	```bash
