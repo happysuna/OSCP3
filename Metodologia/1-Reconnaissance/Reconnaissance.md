@@ -92,3 +92,7 @@ Se non si è a conoscenza di host attivi, potrebbe essere necessario effettuare 
 	```bash
 	nmap -sS -sV --script=/path/to/your/vulnscan.nse -oN nmap/vulnScan $IP
 	```
+- [ ] Full _nmapAutomator_ scanning
+	```bash
+	sudo nmapAutomator.sh --host $IP --type All
+	```
