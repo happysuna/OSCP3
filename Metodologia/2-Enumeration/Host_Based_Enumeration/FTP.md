@@ -1,11 +1,10 @@
 # FTP (20/21)
-- [ ] vsftpd (config)
-  ```bash
-  cat /etc/vsftpd.conf | grep -v "#"
-  ```
 - [ ] Anonymous Login
   ```bash
   ftp 10.129.14.136
+  ```
+  ```text
+  anonymous:anonymous
   ```
 - [ ] Recursive Listing
   ```bash
