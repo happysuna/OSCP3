@@ -9,9 +9,9 @@
 
 ## Host Based Enumeration
 - ### [FTP (20/21)](Host_Based_Enumeration/FTP.md)
-- ### [SMB (139)](Host_Based_Enumeration/SMB.md)
+- ### [SMB (139/445)](Host_Based_Enumeration/SMB.md)
 - ### [NFS (111)](Host_Based_Enumeration/NFS.md)
-- ### [DNS (53)](Host_Based_Enumeration/DNS.md)s
+- ### [DNS (53)](Host_Based_Enumeration/DNS.md)
 - ### [SMTP (25/587/465)](Host_Based_Enumeration/SMTP.md)
 - ### [IMAP/POP3 (110/143/993/995)](Host_Based_Enumeration/IMAP_POP3.md)
 - ### [SNMP (161/162)](Host_Based_Enumeration/SNMP.md)

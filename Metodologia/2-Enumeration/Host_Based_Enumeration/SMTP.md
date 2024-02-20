@@ -51,10 +51,18 @@
   ```bash
 	nmap --script smtp-enum-users.nse $IP
 	```
+- [ ] smtp-user-enum
+  ```bash
+	smtp-user-enum -M RCPT -U users.list -D prova.com -t $IP
+	```
   ```bash
 	smtp-user-enum -M VRFY -U smtp-usernames.txt -D prova.com -t $IP
 	```
+- [ ] hydra
+  ```bash
+    hydra -l user -P passwords.list -f $IP -t 64 smtp
+  ```
 - [ ] Metasplit
   ```text
-  use auxiliary/scanner/smtp/smtp_enum
+    use auxiliary/scanner/smtp/smtp_enum
   ```

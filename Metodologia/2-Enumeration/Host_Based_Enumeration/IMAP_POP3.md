@@ -41,3 +41,10 @@
 	```bash
   openssl s_client -connect $IP:imaps
 	```
+- [ ] hydra
+	```bash
+	hydra -l user -P passwords.list -f $IP pop3
+	```
+	```bash
+	hydra -l user -P passwords.list -f $IP imaps
+	```
