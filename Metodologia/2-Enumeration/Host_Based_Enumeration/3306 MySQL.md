@@ -1,4 +1,3 @@
-# MySQL (3306)
 - [ ] MySQL Nmap
 	```bash
   sudo nmap $IP -sV -sC -p3306 --script mysql*
@@ -8,6 +7,7 @@
   mysql -u root -h $IP
   mysql -u root -pP4SSw0rd -h $IP
   ```
+
 | **MySQL Command**   | **Description**   |
 | --------------|-------------------|
 | `mysql -u <user> -p<password> -h <IP address>` | Connect to the MySQL server. There should not be a space between the '-p' flag, and the password. |

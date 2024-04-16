@@ -1,0 +1,268 @@
+{
+  "main": {
+    "id": "9683139d246be2d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "e9612154ead68f28",
+        "type": "tabs",
+        "dimension": 40.89219330855018,
+        "children": [
+          {
+            "id": "0a401ecc1edb210c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/6 Information Gathering.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "ed85edf87c7327e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/7. Vulnerability Scanning.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "69e65ea5bfeb75bc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/9. Common Web Application Attacks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2b0b54b0796d7d13",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "02b116a3d76c51c2",
+        "type": "tabs",
+        "dimension": 59.10780669144982,
+        "children": [
+          {
+            "id": "d6e2d92e67d1e352",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1b6bba511ceeeb9f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "234d5ce1ba167eab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/3306 MySQL.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e76bd1a7dedee408",
+    "type": "split",
+    "children": [
+      {
+        "id": "c39e4cdbd609ddab",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8eaa4e0edfe171ff",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cb83073b9a66edc4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "sqlmap",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "e81a16169f7434f4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 262.5
+  },
+  "right": {
+    "id": "b5c129146a920ceb",
+    "type": "split",
+    "children": [
+      {
+        "id": "f2d00151500c5325",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0d095481ceb1fe3b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "70a725fda4e9c3a8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1454219b365ba7b2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "cfa2c345cac1eef9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Apri selezione rapida": false,
+      "graph:Apri vista grafo": false,
+      "canvas:Crea nuova lavagna": false,
+      "daily-notes:Apri nota del giorno": false,
+      "templates:Inserisci modello": false,
+      "command-palette:Apri riquadro comandi": false
+    }
+  },
+  "active": "2b0b54b0796d7d13",
+  "lastOpenFiles": [
+    "README.md",
+    "Immagini/TCM_Security.png",
+    "OSCP/Esercizi/10. SQL Injection Attacks.md",
+    "Metodologia/3-Exploitation/Password_Attacks.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/22 SSH.md",
+    "Linux-Box/jarvis.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+    "OSCP/Esercizi/9. Common Web Application Attacks.md",
+    "Metodologia/3-Exploitation/README.md",
+    "Linux-Box/brainfuck.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/3306 MySQL.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/161-162 SNMP.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/25-587-465 SMTP.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/111 NFS.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/1443 MSSQL.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/623 IPMI.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/110-143-993-995 IMAP-POP3.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/53 DNS.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/1521 Oracle_TNS.md",
+    "OSCP/Immagini_OSCP",
+    "Metodologia/1-Reconnaissance/Reconnaissance.md",
+    "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_2.png",
+    "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_1.png",
+    "OSCP/Immagini_OSCP/Capitolo 9/Using_Non-ExecutableFiles_2.png",
+    "OSCP/Immagini_OSCP/Capitolo 9/Using_Non-ExecutableFiles_1.png",
+    "OSCP/Immagini_OSCP/Capitolo 9/Using_Executable_Files_1.png",
+    "OSCP/Immagini_OSCP/Capitolo 9",
+    "OSCP/Immagini_OSCP/Capitolo 9/Using_Executable_Files_2.png",
+    "OSCP",
+    "OSCP/Esercizi/7. Vulnerability Scanning.md",
+    "OSCP/Esercizi/6 Information Gathering.md",
+    "OSCP/Esercizi"
+  ]
+}

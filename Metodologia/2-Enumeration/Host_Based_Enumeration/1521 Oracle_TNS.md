@@ -1,4 +1,3 @@
-# Oracle TNS (1521)
 - [ ] Oracle TNS Nmap
 	```bash
   sudo nmap -p1521 -sV $IP --open

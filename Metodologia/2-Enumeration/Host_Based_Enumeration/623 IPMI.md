@@ -1,4 +1,3 @@
-# IPMI (623)
 - [ ] IPMI Nmap
   ```bash
   sudo nmap -sU --script ipmi-version -p 623 $IP
