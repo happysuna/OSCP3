@@ -9,9 +9,12 @@ Per la preparazione seguirò questa [**lista**](https://docs.google.com/spreadsh
 
 #### Consigli
 
-I corsi di TCM Security consentono di approcciarsi alle macchine della lista con più facilita:
+I corsi di TCM Security facilitano l'approccio alle macchine della lista.
 
-![[TCM_Security.png]]
+<p align="center">
+  <img src="/Immagini/TCM_Security.png" />
+</p>
+
 #### Credits
 
-Gran parte del contenuto è influenzato dal lavoro di [**@rana\_\_khalil**](https://twitter.com/rana__khalil), a cui desidero esprimere la mia più sincera gratitudine.
+Gran parte del contenuto è influenzato dal lavoro di [**@rana\_\_khalil**](https://twitter.com/rana__khalil) e [**Leonardo Tamiano**](https://twitter.com/leo_0x123), ai quali desidero esprimere la mia più sincera gratitudine.

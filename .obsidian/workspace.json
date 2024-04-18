@@ -55,9 +55,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "21c04759301bc109",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/11. Client-side Attacks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       },
       {
         "id": "02b116a3d76c51c2",
@@ -94,14 +106,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/3306 MySQL.md",
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6b59e1f849d30771",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/4-Post-Exploitation/File_Transfers.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -130,7 +154,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "sqlmap",
+                "query": "README",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -167,7 +191,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md",
+                "file": "OSCP/Esercizi/11. Client-side Attacks.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +208,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md",
+                "file": "OSCP/Esercizi/11. Client-side Attacks.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -207,7 +231,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/10. SQL Injection Attacks.md"
+                "file": "OSCP/Esercizi/11. Client-side Attacks.md"
               }
             }
           }
@@ -228,41 +252,51 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "2b0b54b0796d7d13",
+  "active": "21c04759301bc109",
   "lastOpenFiles": [
+    "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_2.png",
+    "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_1.png",
+    "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_2.png",
+    "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_1.png",
+    "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_2.png",
+    "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_1.png",
+    "OSCP/Immagini_OSCP/Capitolo_9",
     "README.md",
+    "Metodologia/2-Enumeration/AD/AD_Enumeration_&_Attacks.md",
+    "TCM_Security.png",
+    "HTB/Windows-Box/template.md",
+    "HTB/Windows-Box/support.md",
+    "HTB/Windows-Box/servmon.md",
+    "HTB/Windows-Box/optimum.md",
+    "HTB/Windows-Box/legacy.md",
+    "HTB/Windows-Box/jeeves.md",
+    "HTB/Windows-Box/granny.md",
+    "HTB/Windows-Box/forest.md",
+    "HTB/Windows-Box/grandpa.md",
+    "HTB/Windows-Box/flight.md",
+    "HTB/Windows-Box/escape.md",
+    "HTB/Windows-Box/devel.md",
+    "HTB/Windows-Box/bastard.md",
+    "HTB/Windows-Box/blue.md",
+    "HTB/Windows-Box/arctic.md",
+    "HTB/Windows-Box/active.md",
+    "HTB/Windows-Box",
+    "HTB/Linux-Box/template.md",
+    "HTB/Linux-Box/valentine.md",
+    "HTB/Linux-Box/tartarsauce.md",
+    "HTB/Linux-Box/tabby.md",
+    "HTB/Linux-Box/swagshop.md",
+    "HTB/Linux-Box/surveillance.md",
+    "HTB/Linux-Box/sunday.md",
+    "HTB/Linux-Box",
+    "HTB",
     "Immagini/TCM_Security.png",
-    "OSCP/Esercizi/10. SQL Injection Attacks.md",
-    "Metodologia/3-Exploitation/Password_Attacks.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/22 SSH.md",
-    "Linux-Box/jarvis.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
-    "OSCP/Esercizi/9. Common Web Application Attacks.md",
-    "Metodologia/3-Exploitation/README.md",
-    "Linux-Box/brainfuck.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/3306 MySQL.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/161-162 SNMP.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/25-587-465 SMTP.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/111 NFS.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/1443 MSSQL.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/623 IPMI.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/110-143-993-995 IMAP-POP3.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/53 DNS.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/1521 Oracle_TNS.md",
     "OSCP/Immagini_OSCP",
-    "Metodologia/1-Reconnaissance/Reconnaissance.md",
     "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_2.png",
     "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_1.png",
     "OSCP/Immagini_OSCP/Capitolo 9/Using_Non-ExecutableFiles_2.png",
-    "OSCP/Immagini_OSCP/Capitolo 9/Using_Non-ExecutableFiles_1.png",
-    "OSCP/Immagini_OSCP/Capitolo 9/Using_Executable_Files_1.png",
     "OSCP/Immagini_OSCP/Capitolo 9",
-    "OSCP/Immagini_OSCP/Capitolo 9/Using_Executable_Files_2.png",
     "OSCP",
-    "OSCP/Esercizi/7. Vulnerability Scanning.md",
-    "OSCP/Esercizi/6 Information Gathering.md",
     "OSCP/Esercizi"
   ]
 }
