@@ -12,7 +12,7 @@ Per la preparazione seguirò questa [**lista**](https://docs.google.com/spreadsh
 I corsi di TCM Security facilitano l'approccio alle macchine della lista.
 
 <p align="center">
-  <img src="/Immagini/TCM_Security.png" />
+  <img src="/TCM_Security.png" />
 </p>
 
 #### Credits
