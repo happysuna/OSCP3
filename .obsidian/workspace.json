@@ -6,7 +6,7 @@
       {
         "id": "e9612154ead68f28",
         "type": "tabs",
-        "dimension": 42.9407461594733,
+        "dimension": 46.690909090909095,
         "children": [
           {
             "id": "6fcb8e7bddd9917b",
@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "15. Password Attacks.md",
+                "file": "OSCP/Esercizi/15. Password Attacks.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,14 +31,26 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f66fea5b4fb4914d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
         "id": "02b116a3d76c51c2",
         "type": "tabs",
-        "dimension": 57.0592538405267,
+        "dimension": 53.309090909090905,
         "children": [
           {
             "id": "d6e2d92e67d1e352",
@@ -118,7 +130,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "README",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -139,7 +151,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 271.50418853759766
+    "width": 263.50418853759766
   },
   "right": {
     "id": "b5c129146a920ceb",
@@ -155,7 +167,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +184,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -195,7 +207,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/16. Windows Privilege Escalation.md"
+                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md"
               }
             }
           }
@@ -216,25 +228,26 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "1ca59f1c3d1043fa",
+  "active": "8eaa4e0edfe171ff",
   "lastOpenFiles": [
     "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+    "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+    "OSCP/Esercizi/13. Fixing Exploits.md",
+    "OSCP/Esercizi/15. Password Attacks.md",
+    "OSCP/Esercizi/14. Antivirus Evasion.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
-    "15. Password Attacks.md",
     "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_1.png",
     "OSCP/Esercizi/9. Common Web Application Attacks.md",
     "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_2.png",
     "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_1.png",
     "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_2.png",
     "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_1.png",
-    "OSCP/Esercizi/14. Antivirus Evasion.md",
     "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_2.png",
     "Metodologia/3-Exploitation/Password_Attacks.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
     "OSCP/Esercizi/6 Information Gathering.md",
     "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
-    "OSCP/Esercizi/13. Fixing Exploits.md",
     "Metodologia/4-Post-Exploitation/File_Transfers.md",
     "OSCP/Esercizi/11. Client-side Attacks.md",
     "OSCP/Esercizi/7. Vulnerability Scanning.md",
@@ -251,7 +264,6 @@
     "HTB/Windows-Box/servmon.md",
     "HTB/Windows-Box/optimum.md",
     "HTB/Windows-Box/legacy.md",
-    "HTB/Windows-Box/jeeves.md",
     "HTB/Windows-Box",
     "HTB/Linux-Box",
     "HTB",
