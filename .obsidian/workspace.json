@@ -228,12 +228,12 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "8eaa4e0edfe171ff",
+  "active": "f66fea5b4fb4914d",
   "lastOpenFiles": [
-    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
-    "OSCP/Esercizi/17. Linux Privilege Escalation.md",
-    "OSCP/Esercizi/13. Fixing Exploits.md",
     "OSCP/Esercizi/15. Password Attacks.md",
+    "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+    "OSCP/Esercizi/13. Fixing Exploits.md",
     "OSCP/Esercizi/14. Antivirus Evasion.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
     "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_1.png",
