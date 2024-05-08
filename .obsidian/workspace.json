@@ -6,51 +6,38 @@
       {
         "id": "e9612154ead68f28",
         "type": "tabs",
-        "dimension": 46.690909090909095,
+        "dimension": 46.68523676880223,
         "children": [
           {
-            "id": "6fcb8e7bddd9917b",
+            "id": "7abcc9c9d1b30d63",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/15. Password Attacks.md",
+                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "1ca59f1c3d1043fa",
+            "id": "de074530101b0b4f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/16. Windows Privilege Escalation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f66fea5b4fb4914d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "02b116a3d76c51c2",
         "type": "tabs",
-        "dimension": 53.309090909090905,
+        "dimension": 53.31476323119777,
         "children": [
           {
             "id": "d6e2d92e67d1e352",
@@ -99,9 +86,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3273e5112ffcbe1d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "05bc6fca822fc02e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -151,7 +162,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 263.50418853759766
+    "width": 355.5110321044922
   },
   "right": {
     "id": "b5c129146a920ceb",
@@ -167,7 +178,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -184,7 +195,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -207,7 +218,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/17. Linux Privilege Escalation.md"
+                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md"
               }
             }
           }
@@ -228,49 +239,48 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "f66fea5b4fb4914d",
+  "active": "7abcc9c9d1b30d63",
   "lastOpenFiles": [
-    "OSCP/Esercizi/15. Password Attacks.md",
+    "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
+    "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
+    "Pasted image 20240508161414.png",
+    "OSCP/Immagini_OSCP/DNS_Tunneling_Fundamentals_2.png",
+    "OSCP/Immagini_OSCP/DNS_Tunneling_Fundamentals.png",
+    "Metodologia/1-Reconnaissance/Reconnaissance.md",
+    "OSCP/Immagini_OSCP/HTTP_Tunneling_with_Chisel_2.png",
+    "OSCP/Immagini_OSCP/HTTP_Tunneling_with_Chisel.png",
+    "OSCP/Esercizi/7. Vulnerability Scanning.md",
+    "OSCP/Esercizi/11. Client-side Attacks.md",
+    "OSCP/Esercizi/9. Common Web Application Attacks.md",
+    "OSCP/Esercizi/6 Information Gathering.md",
+    "OSCP/Immagini_OSCP/netsh_4.png",
+    "OSCP/Immagini_OSCP/netsh_3.png",
+    "OSCP/Immagini_OSCP/netsh_2.png",
+    "OSCP/Immagini_OSCP/plink.png",
+    "OSCP/Immagini_OSCP/netsh.png",
     "OSCP/Esercizi/17. Linux Privilege Escalation.md",
+    "OSCP/Immagini_OSCP/Port_Forwarding_with_Socat.md",
+    "HTB/Linux-Box/analytics.md",
+    "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
+    "Metodologia/3-Exploitation/Password_Attacks.md",
+    "OSCP/Esercizi/15. Password Attacks.md",
     "OSCP/Esercizi/16. Windows Privilege Escalation.md",
     "OSCP/Esercizi/13. Fixing Exploits.md",
     "OSCP/Esercizi/14. Antivirus Evasion.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
-    "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_1.png",
-    "OSCP/Esercizi/9. Common Web Application Attacks.md",
-    "OSCP/Immagini_OSCP/Capitolo_9/Using_Executable_Files_2.png",
-    "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_1.png",
-    "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_2.png",
-    "OSCP/Immagini_OSCP/Capitolo_9/OS_Command_Injection_1.png",
-    "OSCP/Immagini_OSCP/Capitolo_9/Using_Non-ExecutableFiles_2.png",
-    "Metodologia/3-Exploitation/Password_Attacks.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
-    "OSCP/Esercizi/6 Information Gathering.md",
-    "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
     "Metodologia/4-Post-Exploitation/File_Transfers.md",
-    "OSCP/Esercizi/11. Client-side Attacks.md",
-    "OSCP/Esercizi/7. Vulnerability Scanning.md",
     "OSCP/Esercizi/10. SQL Injection Attacks.md",
     "OSCP/Esercizi/12. Locating Public Exploits.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/53 DNS.md",
-    "Metodologia/1-Reconnaissance/Reconnaissance.md",
     "README.md",
     "OSCP/Immagini_OSCP/Capitolo_9",
     "Metodologia/2-Enumeration/AD/AD_Enumeration_&_Attacks.md",
-    "TCM_Security.png",
-    "HTB/Windows-Box/template.md",
-    "HTB/Windows-Box/support.md",
-    "HTB/Windows-Box/servmon.md",
-    "HTB/Windows-Box/optimum.md",
-    "HTB/Windows-Box/legacy.md",
     "HTB/Windows-Box",
     "HTB/Linux-Box",
     "HTB",
-    "Immagini/TCM_Security.png",
     "OSCP/Immagini_OSCP",
-    "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_2.png",
-    "OSCP/Immagini_OSCP/Capitolo 9/OS_Command_Injection_1.png",
     "OSCP/Immagini_OSCP/Capitolo 9",
     "OSCP",
     "OSCP/Esercizi"
