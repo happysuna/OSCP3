@@ -6,38 +6,63 @@
       {
         "id": "e9612154ead68f28",
         "type": "tabs",
-        "dimension": 46.68523676880223,
+        "dimension": 46.73596673596674,
         "children": [
           {
-            "id": "7abcc9c9d1b30d63",
+            "id": "456a9ff725932da4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
+                "file": "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "de074530101b0b4f",
+            "id": "10c82dc536e292b1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
+                "file": "OSCP/Esercizi/15. Password Attacks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4b2b79323ae3d6fc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "64a8d939b01e6f53",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       },
       {
         "id": "02b116a3d76c51c2",
         "type": "tabs",
-        "dimension": 53.31476323119777,
+        "dimension": 53.26403326403326,
         "children": [
           {
             "id": "d6e2d92e67d1e352",
@@ -46,18 +71,6 @@
               "type": "markdown",
               "state": {
                 "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "1b6bba511ceeeb9f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
                 "mode": "source",
                 "source": false
               }
@@ -105,7 +118,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "95fa31a8d606a86a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
                 "mode": "source",
                 "source": false
               }
@@ -178,7 +203,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
+                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -195,7 +220,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
+                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -218,7 +243,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md"
+                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md"
               }
             }
           }
@@ -239,50 +264,53 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "7abcc9c9d1b30d63",
+  "active": "8eaa4e0edfe171ff",
   "lastOpenFiles": [
+    "OSCP/Immagini_OSCP/Capitolo_23/payload.png",
+    "OSCP/Immagini_OSCP/Capitolo_23",
+    "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
+    "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+    "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
+    "OSCP/Esercizi/15. Password Attacks.md",
+    "OSCP/Immagini_OSCP/Capitolo_22/Kerberos.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_ANALYSIS_BUTTON.png",
+    "OSCP/Immagini_OSCP/Capitolo_18",
+    "OSCP/Immagini_OSCP/Capitolo_21",
+    "OSCP/Immagini_OSCP/Capitolo_22",
+    "OSCP/Immagini_OSCP/Capitolo_22/NTLM.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA_OWNED.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_MARK_OWNED.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA.png",
+    "Pasted image 20240511101855.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_DOMAIN_ADMINS_2.png",
+    "Pasted image 20240511101637.png",
+    "OSCP/Immagini_OSCP/Capitolo_21/BH_SETTINGS.png",
     "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
-    "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
-    "Pasted image 20240508161414.png",
-    "OSCP/Immagini_OSCP/DNS_Tunneling_Fundamentals_2.png",
-    "OSCP/Immagini_OSCP/DNS_Tunneling_Fundamentals.png",
-    "Metodologia/1-Reconnaissance/Reconnaissance.md",
-    "OSCP/Immagini_OSCP/HTTP_Tunneling_with_Chisel_2.png",
-    "OSCP/Immagini_OSCP/HTTP_Tunneling_with_Chisel.png",
-    "OSCP/Esercizi/7. Vulnerability Scanning.md",
     "OSCP/Esercizi/11. Client-side Attacks.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
+    "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
+    "OSCP/Esercizi/20. The Metasploit Framework.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+    "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
+    "Metodologia/1-Reconnaissance/Reconnaissance.md",
+    "Metodologia/3-Exploitation/Password_Attacks.md",
+    "OSCP/Esercizi/10. SQL Injection Attacks.md",
+    "Metodologia/Immagini_Metodologia",
+    "HTB/Immagini_HTB",
+    "OSCP/Esercizi/7. Vulnerability Scanning.md",
     "OSCP/Esercizi/9. Common Web Application Attacks.md",
     "OSCP/Esercizi/6 Information Gathering.md",
-    "OSCP/Immagini_OSCP/netsh_4.png",
-    "OSCP/Immagini_OSCP/netsh_3.png",
-    "OSCP/Immagini_OSCP/netsh_2.png",
-    "OSCP/Immagini_OSCP/plink.png",
-    "OSCP/Immagini_OSCP/netsh.png",
     "OSCP/Esercizi/17. Linux Privilege Escalation.md",
     "OSCP/Immagini_OSCP/Port_Forwarding_with_Socat.md",
     "HTB/Linux-Box/analytics.md",
-    "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
-    "Metodologia/3-Exploitation/Password_Attacks.md",
-    "OSCP/Esercizi/15. Password Attacks.md",
-    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
     "OSCP/Esercizi/13. Fixing Exploits.md",
     "OSCP/Esercizi/14. Antivirus Evasion.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
     "Metodologia/4-Post-Exploitation/File_Transfers.md",
-    "OSCP/Esercizi/10. SQL Injection Attacks.md",
-    "OSCP/Esercizi/12. Locating Public Exploits.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/53 DNS.md",
-    "README.md",
     "OSCP/Immagini_OSCP/Capitolo_9",
-    "Metodologia/2-Enumeration/AD/AD_Enumeration_&_Attacks.md",
     "HTB/Windows-Box",
     "HTB/Linux-Box",
-    "HTB",
-    "OSCP/Immagini_OSCP",
-    "OSCP/Immagini_OSCP/Capitolo 9",
-    "OSCP",
-    "OSCP/Esercizi"
+    "HTB"
   ]
 }
