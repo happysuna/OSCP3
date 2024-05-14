@@ -264,12 +264,13 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "8eaa4e0edfe171ff",
+  "active": "64a8d939b01e6f53",
   "lastOpenFiles": [
-    "OSCP/Immagini_OSCP/Capitolo_23/payload.png",
-    "OSCP/Immagini_OSCP/Capitolo_23",
+    "OSCP/Immagini_OSCP/Capitolo_23/payload_2.png",
     "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
     "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+    "OSCP/Immagini_OSCP/Capitolo_23/payload.png",
+    "OSCP/Immagini_OSCP/Capitolo_23",
     "OSCP/Esercizi/16. Windows Privilege Escalation.md",
     "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
     "OSCP/Esercizi/15. Password Attacks.md",
@@ -285,7 +286,6 @@
     "Pasted image 20240511101855.png",
     "OSCP/Immagini_OSCP/Capitolo_21/BH_DOMAIN_ADMINS_2.png",
     "Pasted image 20240511101637.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_SETTINGS.png",
     "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
     "OSCP/Esercizi/11. Client-side Attacks.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
