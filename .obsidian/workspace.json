@@ -4,140 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "e9612154ead68f28",
+        "id": "968c0199d394904e",
         "type": "tabs",
-        "dimension": 46.73596673596674,
         "children": [
           {
-            "id": "456a9ff725932da4",
+            "id": "c968dd805c7e0c9c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "10c82dc536e292b1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Esercizi/15. Password Attacks.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4b2b79323ae3d6fc",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "64a8d939b01e6f53",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 3
-      },
-      {
-        "id": "02b116a3d76c51c2",
-        "type": "tabs",
-        "dimension": 53.26403326403326,
-        "children": [
-          {
-            "id": "d6e2d92e67d1e352",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "ba689d8a8874128f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/4-Post-Exploitation/File_Transfers.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e9f7077536b28a09",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/3-Exploitation/Password_Attacks.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "3273e5112ffcbe1d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "05bc6fca822fc02e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "95fa31a8d606a86a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -203,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -220,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -243,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md"
+                "file": "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md"
               }
             }
           }
@@ -264,15 +146,20 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "64a8d939b01e6f53",
+  "active": "c968dd805c7e0c9c",
   "lastOpenFiles": [
-    "OSCP/Immagini_OSCP/Capitolo_23/payload_2.png",
-    "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
     "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+    "OSCP/Esercizi/11. Client-side Attacks.md",
+    "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
+    "OSCP/Esercizi/24. Assembling the Pieces.md",
+    "Metodologia/1-Reconnaissance/Reconnaissance.md",
+    "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
+    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
+    "OSCP/Immagini_OSCP/Capitolo_23/golden_ticket_2.png",
+    "OSCP/Immagini_OSCP/Capitolo_23/golden_ticket.png",
+    "OSCP/Immagini_OSCP/Capitolo_23/payload_2.png",
     "OSCP/Immagini_OSCP/Capitolo_23/payload.png",
     "OSCP/Immagini_OSCP/Capitolo_23",
-    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
-    "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
     "OSCP/Esercizi/15. Password Attacks.md",
     "OSCP/Immagini_OSCP/Capitolo_22/Kerberos.png",
     "OSCP/Immagini_OSCP/Capitolo_21/BH_ANALYSIS_BUTTON.png",
@@ -283,17 +170,12 @@
     "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA_OWNED.png",
     "OSCP/Immagini_OSCP/Capitolo_21/BH_MARK_OWNED.png",
     "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA.png",
-    "Pasted image 20240511101855.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_DOMAIN_ADMINS_2.png",
-    "Pasted image 20240511101637.png",
     "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
-    "OSCP/Esercizi/11. Client-side Attacks.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
     "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
     "OSCP/Esercizi/20. The Metasploit Framework.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
     "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
-    "Metodologia/1-Reconnaissance/Reconnaissance.md",
     "Metodologia/3-Exploitation/Password_Attacks.md",
     "OSCP/Esercizi/10. SQL Injection Attacks.md",
     "Metodologia/Immagini_Metodologia",
