@@ -17,42 +17,6 @@
             }
           },
           {
-            "id": "04752e5d8a339cf6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Challenge_Labs/1. Medtech.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "8c8e59e3fe3a6ae9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Challenge_Labs/2. Relia.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "4dd31f2f0b0088c0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "5176b24935b32d88",
             "type": "leaf",
             "state": {
@@ -76,8 +40,7 @@
               }
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "7c63a3438b290bbc",
@@ -223,7 +186,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -240,7 +202,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -262,9 +223,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "OSCP/Challenge_Labs/4. OSCP A.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -284,11 +243,12 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "4dd31f2f0b0088c0",
+  "active": "4268aedbbc0c9e8c",
   "lastOpenFiles": [
+    "OSCP/Challenge_Labs/1. Medtech.md",
+    "OSCP/Challenge_Labs/4. OSCP A.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
     "Metodologia/2-Enumeration/Windows_Remote_Management_Protocols/WMI.md",
-    "OSCP/Challenge_Labs/4. OSCP A.md",
     "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
     "OSCP/Immagini_OSCP/OSCP_A/143_port_81.png",
     "OSCP/Capitoli/9. Common Web Application Attacks.md",
@@ -297,7 +257,6 @@
     "OSCP/Immagini_OSCP/OSCP_A/144_port_80_git.png",
     "OSCP/Capitoli/11. Client-side Attacks.md",
     "Metodologia/OSCP-cheatsheet.md",
-    "OSCP/Challenge_Labs/1. Medtech.md",
     "OSCP/Immagini_OSCP/OSCP_A/145_port_80.png",
     "OSCP/Immagini_OSCP/OSCP_A/144_port_80.png",
     "OSCP/Immagini_OSCP/OSCP_A/141_port_81.png",
