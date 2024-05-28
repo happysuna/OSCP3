@@ -6,20 +6,158 @@
       {
         "id": "968c0199d394904e",
         "type": "tabs",
+        "dimension": 53.638253638253644,
         "children": [
           {
-            "id": "c968dd805c7e0c9c",
+            "id": "4268aedbbc0c9e8c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          },
+          {
+            "id": "04752e5d8a339cf6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Challenge_Labs/1. Medtech.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8c8e59e3fe3a6ae9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Challenge_Labs/2. Relia.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4dd31f2f0b0088c0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5176b24935b32d88",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Capitoli/10. SQL Injection Attacks.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4ecd59bdc4f403a4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "OSCP/Capitoli/9. Common Web Application Attacks.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "7c63a3438b290bbc",
+        "type": "tabs",
+        "dimension": 46.36174636174636,
+        "children": [
+          {
+            "id": "de610b75c32939d5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/1-Reconnaissance/Reconnaissance.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6efd9e08b809b156",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "10059308b5a30c16",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/25-587-465 SMTP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fe9edf813d863669",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/110-143-993-995 IMAP-POP3.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "fb764eca3aff21b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "851bccee82ae5126",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "vertical"
@@ -48,7 +186,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#DMZ",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +223,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +240,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
+                "file": "OSCP/Challenge_Labs/4. OSCP A.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +263,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "OSCP/Esercizi/23. Lateral Movement in Active Directory.md"
+                "file": "OSCP/Challenge_Labs/4. OSCP A.md"
               }
             }
           }
@@ -146,53 +284,52 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "c968dd805c7e0c9c",
+  "active": "4dd31f2f0b0088c0",
   "lastOpenFiles": [
-    "OSCP/Esercizi/19. Tunneling Through Deep Packet Inspection.md",
-    "OSCP/Esercizi/23. Lateral Movement in Active Directory.md",
-    "OSCP/Esercizi/11. Client-side Attacks.md",
-    "OSCP/Esercizi/21. Active Directory Introduction and Enumeration.md",
-    "OSCP/Esercizi/24. Assembling the Pieces.md",
-    "Metodologia/1-Reconnaissance/Reconnaissance.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
+    "Metodologia/2-Enumeration/Windows_Remote_Management_Protocols/WMI.md",
+    "OSCP/Challenge_Labs/4. OSCP A.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
+    "OSCP/Immagini_OSCP/OSCP_A/143_port_81.png",
+    "OSCP/Capitoli/9. Common Web Application Attacks.md",
+    "OSCP/Capitoli/10. SQL Injection Attacks.md",
+    "OSCP/Capitoli/15. Password Attacks.md",
+    "OSCP/Immagini_OSCP/OSCP_A/144_port_80_git.png",
+    "OSCP/Capitoli/11. Client-side Attacks.md",
+    "Metodologia/OSCP-cheatsheet.md",
+    "OSCP/Challenge_Labs/1. Medtech.md",
+    "OSCP/Immagini_OSCP/OSCP_A/145_port_80.png",
+    "OSCP/Immagini_OSCP/OSCP_A/144_port_80.png",
+    "OSCP/Immagini_OSCP/OSCP_A/141_port_81.png",
+    "OSCP/Immagini_OSCP/OSCP_A/141_port_form.png",
+    "OSCP/Capitoli/17. Linux Privilege Escalation.md",
+    "OSCP/Immagini_OSCP/OSCP_A/141_port_80.png",
+    "OSCP/Immagini_OSCP/OSCP_A/143_port_80_0.png",
+    "OSCP/Immagini_OSCP/OSCP_A/143_port_80_index.png",
+    "OSCP/Challenge_Labs/2. Relia.md",
+    "OSCP/Immagini_OSCP/OSCP_A/143_port_80.png",
+    "OSCP/Immagini_OSCP/OSCP_A",
+    "OSCP/Immagini_OSCP/Nuova cartella",
+    "Metodologia/4-Post-Exploitation/Linux_Privilege_Escalation.md",
+    "HTB/Linux-Box/friendzone.md",
+    "OSCP/Capitoli/21. Active Directory Introduction and Enumeration.md",
+    "Metodologia/2-Enumeration/Windows_Remote_Management_Protocols/RDP.md",
+    "Metodologia/2-Enumeration/Windows_Remote_Management_Protocols/WinRM.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/25-587-465 SMTP.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/110-143-993-995 IMAP-POP3.md",
+    "OSCP/Capitoli/16. Windows Privilege Escalation.md",
+    "OSCP/Capitoli/18. Port Redirection and SSH Tunneling.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/53 DNS.md",
+    "Metodologia/3-Exploitation/Password_Attacks.md",
+    "Metodologia/2-Enumeration/Host_Based_Enumeration/1443 MSSQL.md",
     "OSCP/Esercizi/22. Attacking Active Directory Authentication.md",
-    "OSCP/Esercizi/16. Windows Privilege Escalation.md",
-    "OSCP/Immagini_OSCP/Capitolo_23/golden_ticket_2.png",
-    "OSCP/Immagini_OSCP/Capitolo_23/golden_ticket.png",
-    "OSCP/Immagini_OSCP/Capitolo_23/payload_2.png",
-    "OSCP/Immagini_OSCP/Capitolo_23/payload.png",
+    "OSCP/Immagini_OSCP/Relia/245_port_8000_proof.txt",
+    "OSCP/Immagini_OSCP/Relia",
+    "OSCP/Immagini_OSCP/Medtech",
+    "OSCP/Challenge_Labs",
     "OSCP/Immagini_OSCP/Capitolo_23",
-    "OSCP/Esercizi/15. Password Attacks.md",
-    "OSCP/Immagini_OSCP/Capitolo_22/Kerberos.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_ANALYSIS_BUTTON.png",
     "OSCP/Immagini_OSCP/Capitolo_18",
     "OSCP/Immagini_OSCP/Capitolo_21",
-    "OSCP/Immagini_OSCP/Capitolo_22",
-    "OSCP/Immagini_OSCP/Capitolo_22/NTLM.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA_OWNED.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_MARK_OWNED.png",
-    "OSCP/Immagini_OSCP/Capitolo_21/BH_SHORTEST_PATH_DA.png",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/139-445 SMB.md",
-    "OSCP/Esercizi/18. Port Redirection and SSH Tunneling.md",
-    "OSCP/Esercizi/20. The Metasploit Framework.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/ffuf_cheatsheet.md",
-    "Metodologia/4-Post-Exploitation/Pivoting_Tunneling_and_Port_Forwarding.md",
-    "Metodologia/3-Exploitation/Password_Attacks.md",
-    "OSCP/Esercizi/10. SQL Injection Attacks.md",
-    "Metodologia/Immagini_Metodologia",
-    "HTB/Immagini_HTB",
-    "OSCP/Esercizi/7. Vulnerability Scanning.md",
-    "OSCP/Esercizi/9. Common Web Application Attacks.md",
-    "OSCP/Esercizi/6 Information Gathering.md",
-    "OSCP/Esercizi/17. Linux Privilege Escalation.md",
-    "OSCP/Immagini_OSCP/Port_Forwarding_with_Socat.md",
-    "HTB/Linux-Box/analytics.md",
-    "OSCP/Esercizi/13. Fixing Exploits.md",
-    "OSCP/Esercizi/14. Antivirus Evasion.md",
-    "Metodologia/2-Enumeration/Host_Based_Enumeration/20-21 FTP.md",
-    "Metodologia/4-Post-Exploitation/File_Transfers.md",
-    "OSCP/Immagini_OSCP/Capitolo_9",
-    "HTB/Windows-Box",
-    "HTB/Linux-Box",
-    "HTB"
+    "OSCP/Immagini_OSCP/Capitolo_22"
   ]
 }
